@@ -1,0 +1,679 @@
+<!-- Chosen Palette: Academic Blue (#0A2342), Accent Blue (#007BFF), Light Gray (#f8fafc), White (#FFFFFF) -->
+<!-- ... (주석 동일) ... -->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생성형 AI 시대의 학습과학 탐색기</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Lato:wght@400;700&family=Noto+Sans+KR:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Lato', 'Noto Sans KR', sans-serif;
+            background-color: #f1f5f9; /* Tailwind 'slate-100' */
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Poppins', 'Noto Sans KR', sans-serif;
+            color: #0A2342;
+        }
+        .app-container {
+            max-width: 1280px;
+            margin: 2rem auto;
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+            overflow: hidden;
+        }
+        .nav-button {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 700;
+            transition: all 0.2s ease-in-out;
+            border: 2px solid transparent;
+        }
+        .nav-button:hover {
+            background-color: #f8fafc; /* Tailwind 'slate-50' */
+            color: #0A2342;
+        }
+        .nav-button.active {
+            background-color: #e0f2fe; /* Tailwind 'sky-100' */
+            color: #007BFF;
+            border-color: #007BFF;
+        }
+        .page-content {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* ... (기존 스타일 동일) ... */
+        
+        .tile {
+            background-color: #f8fafc;
+            border-radius: 0.75rem;
+            border: 1px solid #e2e8f0;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .tile .icon {
+            color: #007BFF;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        .tile h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+        }
+        .tile p {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            text-align: left;
+        }
+        
+        .quote-layout blockquote {
+            color: #0A2342;
+            font-size: 2.25rem;
+            font-weight: 700;
+            line-height: 1.5;
+            margin: 0;
+            padding: 0 2.5rem;
+            position: relative;
+        }
+        .quote-layout blockquote::before,
+        .quote-layout blockquote::after {
+            color: #cce5ff;
+            content: '"';
+            font-size: 6rem;
+            line-height: 0;
+            position: absolute;
+        }
+        .quote-layout blockquote::before { left: -0.5rem; top: 1.5rem; }
+        .quote-layout blockquote::after { bottom: 0.5rem; right: -0.5rem; }
+        .quote-layout cite {
+            color: #475569;
+            font-size: 1.125rem;
+            font-style: normal;
+            margin-top: 1.5rem;
+            display: block;
+        }
+        
+        .ai-prompt {
+            background-color: #f8fafc;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            border-left: 4px solid #007BFF;
+        }
+        
+        .full-bg-image {
+            background-position: center;
+            background-size: cover;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .full-bg-image .content-overlay {
+            background-color: rgba(10, 35, 66, 0.75);
+            padding: 4rem 2.5rem;
+            text-align: center;
+        }
+        .full-bg-image h2, .full-bg-image p, .full-bg-image cite {
+            color: #FFFFFF;
+        }
+        .full-bg-image h2 { font-size: 2rem; }
+        .full-bg-image p { font-size: 1.25rem; margin-top: 1rem; }
+        .full-bg-image cite { font-size: 0.875rem; margin-top: 1rem; display: block; opacity: 0.8; }
+        
+        .reference-list p {
+            font-size: 0.875rem;
+            line-height: 1.5;
+            color: #475569;
+            margin-bottom: 0.75rem;
+        }
+        .reference-list p a {
+            color: #007BFF;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        .reference-list p a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Sub-tab for Section 3 */
+        .sub-nav-button {
+            padding: 0.5rem 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 700;
+            transition: all 0.2s ease-in-out;
+            background-color: #f1f5f9;
+            color: #475569;
+        }
+        .sub-nav-button.active {
+            background-color: #0A2342;
+            color: #FFFFFF;
+        }
+        .sub-page-content {
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        /* Gemini API Feature Styles */
+        .gemini-interaction-box {
+            border: 1px solid #e2e8f0;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            background-color: #f8fafc;
+        }
+        .gemini-interaction-box label {
+            display: block;
+            font-weight: 700;
+            color: #0A2342;
+            margin-bottom: 0.5rem;
+        }
+        .gemini-interaction-box input[type="text"],
+        .gemini-interaction-box textarea {
+            width: 100%;
+            padding: 0.75rem;
+            border-radius: 0.375rem;
+            border: 1px solid #cbd5e1;
+            font-size: 1rem;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .gemini-interaction-box input[type="text"]:focus,
+        .gemini-interaction-box textarea:focus {
+            outline: none;
+            border-color: #007BFF;
+            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+        }
+        .gemini-button {
+            display: inline-block;
+            background-color: #007BFF;
+            color: #FFFFFF;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            border: none;
+            margin-top: 1rem;
+        }
+        .gemini-button:hover {
+            background-color: #0056b3;
+        }
+        .gemini-button:disabled {
+            background-color: #a0aec0;
+            cursor: not-allowed;
+        }
+        .ai-response-box {
+            background-color: #FFFFFF;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            white-space: pre-wrap; /* Preserve formatting */
+            font-family: 'Noto Sans KR', sans-serif;
+            line-height: 1.7;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        .loading-spinner {
+            display: none;
+            width: 2rem;
+            height: 2rem;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #007BFF;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin: 1rem auto;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="p-6 md:p-8 border-b border-slate-200">
+            <h1 class="text-3xl md:text-4xl font-bold text-center">생성형 AI 시대, '사고'하는 법 가르치기</h1>
+            <p class="text-center text-lg md:text-xl text-slate-600 mt-2">사고 과정이 중요한 학습에서의 학습과학</p>
+            <div class="text-center text-sm text-slate-500 mt-4">
+                <p>교육데이터사이언스 전공 | 2025123757 | 김다정</p>
+            </div>
+        </header>
+
+        <!-- Navigation -->
+        <nav class="p-4 flex flex-wrap justify-center gap-2 md:gap-4 border-b border-slate-200 bg-slate-50">
+            <button id="nav-page1" class="nav-button active" onclick="showPage('page1')">
+                <i class="fa-solid fa-right-left mr-2"></i>서론: AI의 딜레마
+            </button>
+            <button id="nav-page2" class="nav-button" onclick="showPage('page2')">
+                <i class="fa-solid fa-book-open-reader mr-2"></i>학습과학의 관점
+            </button>
+            <button id="nav-page3" class="nav-button" onclick="showPage('page3')">
+                <i class="fa-solid fa-compass-drafting mr-2"></i>새로운 교수설계
+            </button>
+            <button id="nav-page4" class="nav-button" onclick="showPage('page4')">
+                <i class="fa-solid fa-flag-checkered mr-2"></i>결론
+            </button>
+            <button id="nav-page5" class="nav-button" onclick="showPage('page5')">
+                <i class="fa-solid fa-book mr-2"></i>참고문헌
+            </button>
+        </nav>
+
+        <!-- Main Content Area -->
+        <main class="p-6 md:p-10">
+
+            <!-- Page 1: The Dilemma (Slide 2) -->
+            <div id="page1" class="page-content">
+                <h2 class="text-2xl font-bold mb-6">화두 던지기: AI는 '사고'의 기회를 박탈하는가?</h2>
+                <p class="mb-8 text-slate-700 leading-relaxed">
+                    생성형 AI는 학습에 강력한 기회를 제공하지만, '정답'이 아닌 '사고 과정'이 중요한 학습 영역에서는 근본적인 딜레마를 안겨줍니다. 이는 기술의 수용을 넘어, 교육의 본질이 무엇인지 우리에게 묻고 있습니다.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="tile">
+                        <h3 class="text-blue-600">AI: 만능 정답 기계</h3>
+                        <p>생성형 AI는 방대한 지식을 기반으로, <b>'명확한 답'</b>이 있는 영역(예: 사실 확인, 코드 생성, 정보 요약)에서 <b>강력한 학습 파트너</b>입니다.<br><br> 반복적인 문제 해결에 드는 시간을 획기적으로 줄여주며, 마치 <b>24시간 작동하는 개인 튜터</b>처럼 학습 효율을 극대화합니다.</p>
+                    </div>
+                    <div class="tile">
+                        <h3 class="text-blue-600">But, '사고 과정'은?</h3>
+                        <p>하지만 하나의 정답이 아닌 <b>'고차원적 사고 과정'</b>이 중요한 학문(예: 비판적 글쓰기, 윤리적 딜레마 토론)에서는 어떨까요? AI의 즉각적인 답이 학습자의 <b>'스스로 고민할 기회'를 박탈</b>하는 것은 아닐까요? <br><br>이는 <b>'수동적 태도'</b>와 <b>'인지적 게으름'</b>을 유발하여, 궁극적으로 <b>'AI 의존성'</b>을 키울 수 있습니다.</p>
+                        <p class="text-xs text-slate-500 mt-4 text-left w-full">Source: IJAHSS (2024)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 2: Learning Sciences (Slide 3) -->
+            <div id="page2" class="page-content" style="display:none;">
+                <h2 class="text-2xl font-bold mb-6">학습과학(Learning Sciences)의 관점</h2>
+                <p class="mb-8 text-slate-700 leading-relaxed">
+                    앞서 제기된 딜레마는 학습과학의 세 가지 핵심 관점으로 해결할 수 있습니다. 이 이론들은 AI를 '정답 기계'에서 '학습 촉진자'로 재정의하는 핵심 기반이 됩니다.
+                </p>
+                <div class="grid md:grid-cols-3 gap-6">
+                    <div class="tile">
+                        <div class="icon"><i class="fa-solid fa-puzzle-piece"></i></div>
+                        <h3>구성주의 (Constructivism)</h3>
+                        <p>학습은 지식의 수동적 수용이 아닌, <b>'능동적인 의미 구성(Active Meaning-Making)'</b> 과정입니다.</p>
+                    </div>
+                    <div class="tile">
+                        <div class="icon"><i class="fa-solid fa-brain"></i></div>
+                        <h3>메타인지 (Metacognition)</h3>
+                        <p>자신의 사고 과정을 인지하고 조절하는 <b>'생각에 대한 생각'</b>입니다.</p>
+                        <p class="text-xs text-slate-500 mt-2 text-left w-full">Source: MDPI (2025)</p>
+                    </div>
+                    <div class="tile">
+                        <div class="icon"><i class="fa-solid fa-person-digging"></i></div>
+                        <h3>비계설정 (Scaffolding)</h3>
+                        <p>'정답'을 직접 주는 것이 아닌, 스스로 답을 찾도록 돕는 <b>'임시적인 지원(Temporary Support)'</b>입니다.</p>
+                        <p class="text-xs text-slate-500 mt-2 text-left w-full">Source: MeraTutor.ai (2025)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 3: New Strategy (Slides 4, 5, 6) -->
+            <div id="page3" class="page-content" style="display:none;">
+                <h2 class="text-2xl font-bold mb-6">새로운 교수설계: '사고 파트너'로의 전환</h2>
+                <p class="mb-8 text-slate-700 leading-relaxed">
+                    이론을 바탕으로, 우리는 AI를 '정답을 주는 전문가(Answer Engine)'가 아닌, '사고를 촉진하는 파트너(Thinking Partner)'로 재설계할 수 있습니다. 이는 교수자와 학습자의 역할을 재정의하고, 구체적인 교수설계(ID) 전략을 통해 구현됩니다.
+                </p>
+                <div class="text-center w-full max-w-6xl mx-auto my-10 quote-layout">
+                    <blockquote>"AI를 '정답을 주는 전문가(Answer Engine)'가 아닌, <br>
+                    '사고를 촉진하는 파트너(Thinking Partner)'로 재설계해야 합니다."</blockquote>
+                    <cite>— Complete AI Training (2025)</cite>
+                </div>
+                
+                <!-- Sub-navigation for Page 3 -->
+                <div class="flex justify-center gap-4 mb-8 border-b border-slate-200 pb-4">
+                    <button id="nav-page3-1" class="sub-nav-button active" onclick="showSubPage('page3-1')">
+                        <i class="fa-solid fa-users-gear mr-2"></i>새로운 역할
+                    </button>
+                    <button id="nav-page3-2" class="sub-nav-button" onclick="showSubPage('page3-2')">
+                        <i class="fa-solid fa-flask-vial mr-2"></i>교수설계 예시
+                    </button>
+                </div>
+
+                <!-- Sub-Page 3-1: New Roles (Slide 5) -->
+                <div id="page3-1" class="sub-page-content">
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="flex items-start gap-4 p-4 tile">
+                            <i class="fa-solid fa-pen-ruler text-3xl text-blue-600 mt-1"></i>
+                            <div>
+                                <strong class="text-xl font-bold text-gray-800 block mb-1">교수자 (Instructor): '설계자'</strong>
+                                <p class="text-slate-700">"AI가 생성한 답을 '비판'하게 하거나, '대안적 관점'을 제시하도록 하는 프롬프트 설계가 중요합니다."</p>
+                                <p class="text-xs text-slate-500 mt-2">Source: KACE (2024)</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4 p-4 tile">
+                            <i class="fa-solid fa-user-graduate text-3xl text-blue-600 mt-1"></i>
+                            <div>
+                                <strong class="text-xl font-bold text-gray-800 block mb-1">학습자 (Learner): '적극적 탐구자'</strong>
+                                <p class="text-slate-700">"AI를 '소크라테스식 대화 파트너'로 활용하여, 자신의 논리를 정교화하고 반론을 탐색합니다."</p>
+                                <p class="text-xs text-slate-500 mt-2">Source: MeraTutor.ai (2025)</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sub-Page 3-2: ID Example (Slide 6) -->
+                <div id="page3-2" class="sub-page-content" style="display:none;">
+                    <div class="grid md:grid-cols-1 gap-8 items-start">
+                        
+                        <!-- Left Column: Static Image -->
+                        <div class="rounded-lg overflow-hidden shadow-lg sticky top-8">
+                            <div class="p-4 bg-slate-50">
+                                <h4 class="font-bold text-lg text-blue-800">교수설계 모델</h4>
+                                <p class="text-sm text-slate-600 mt-1">AI를 단순 '답변자'가 아닌 '사고 촉진자'로 활용하는 3단계 상호작용 (Ask-Critique-Debate) 모델입니다.</p>
+                            </div>
+                        </div>
+
+                        <!-- Right Column: Gemini API Interaction -->
+                        <div class="space-y-6">
+                            <h3 class="text-2xl font-bold text-blue-800">✨ AI 사고 파트너 (실행)</h3>
+                            <p class="text-slate-700">
+                                아래의 3단계 교수설계를 직접 실행해 보세요. AI를 '정답 기계'가 아닌 '소크라테스식 토론 파트너'로 활용합니다.
+                            </p>
+
+                            <!-- Gemini Interaction Box -->
+                            <div class="gemini-interaction-box space-y-4">
+                                <!-- Step 1: Ask -->
+                                <div>
+                                    <label for="conceptInput">1. (Ask) 핵심 개념 입력:</label>
+                                    <input type="text" id="conceptInput" class="gemini-input" placeholder="예: 메타인지, 구성주의...">
+                                    <button id="askButton" class="gemini-button" onclick="runStep1()">✨ 1단계: AI에게 정의 요청하기</button>
+                                </div>
+
+                                <!-- Loading Spinner -->
+                                <div id="loadingIndicator" class="loading-spinner"></div>
+
+                                <!-- Step 2: Critique -->
+                                <div id="step2Container" style="display:none;" class="space-y-4">
+                                    <hr>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-slate-700">AI의 응답 (1단계):</h4>
+                                        <div id="aiResponse1" class="ai-response-box"></div>
+                                    </div>
+                                    <div>
+                                        <label for="critiqueInput">2. (Critique) AI의 응답을 비판하거나 한계점을 분석하세요:</label>
+                                        <textarea id="critiqueInput" class="gemini-textarea" rows="4" placeholder="예: 이 설명은... 점을 놓치고 있습니다. ...라는 관점이 빠졌습니다."></textarea>
+                                        <button id="debateButton" class="gemini-button" onclick="runStep3()">✨ 3단계: AI와 토론 시작하기</button>
+                                    </div>
+                                </div>
+
+                                <!-- Step 3: Debate -->
+                                <div id="step3Container" style="display:none;" class="space-y-4">
+                                    <hr>
+                                    <div>
+                                        <h4 class="text-lg font-bold text-slate-700">AI의 반론 (3단계 토론):</h4>
+                                        <div id="aiResponse2" class="ai-response-box"></div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 4: Conclusion (Slide 7) -->
+            <div id="page4" class="page-content" style="display:none;">
+                <h2 class="text-2xl font-bold mb-6">결론</h2>
+                <p class="mb-8 text-slate-700 leading-relaxed">
+                    결론적으로, AI의 교육적 가치는 기술 자체가 아닌 우리의 '설계'에 달려있습니다. 학습과학은 AI를 단순한 정답 제공자에서 강력한 사고 촉진 도구로 변화시킬 수 있는 핵심적인 지침을 제공합니다.
+                </p>
+                
+                <div class="full-bg-image my-8" style="background-image: url('https://placehold.co/1280x720/0A2342/FFFFFF?text=%EA%B2%B0%EB%A1%A0');">
+                    <div class="content-overlay">
+                        <h2 class="font-bold">AI가 학습자의 '사고'를 대신하게 할 것인가, <br>
+                            '더 깊은 사고'를 하도록 이끄는 도구가 될 것인가?</h2>
+                        <p>이것은 기술의 문제가 아닌, '학습과학(Learning Sciences)'에 기반한<br> 우리의 '교수설계적 선택(Instructional Design Choice)'에 달려있습니다.</p>
+                        <cite>Source: KACE (2024)</cite>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Page 5: References (Slide 9) -->
+            <div id="page5" class="page-content" style="display:none;">
+                <h2 class="text-2xl font-bold mb-6">참고문헌 (References)</h2>
+                <div class="reference-list text-sm">
+                    <p><a href="https://www.researchgate.net/publication/390876611_Generative_Ai_In_Higher_Education_Philosophical_Sociological_And_Pedagogical_Perspectives" target="_blank">(2024). GENERATIVE AI IN HIGHER EDUCATION: PHILOSOPHICAL, SOCIOLOGICAL, AND PEDAGOGICAL PERSPECTIVES. *International Journal of Arts, Humanities and Social Sciences (IJAHSS)*.</a></p>
+                    <p><a href="https://www.mdpi.com/2227-7102/15/5/554" target="_blank">(2025). Generative Artificial Intelligence Amplifies the Role of Critical Thinking Skills and Reduces Reliance on Prior Knowledge While Promoting In-Depth Learning. *MDPI*.</a></p>
+                    <p><a href="https://completeaitraining.com/news/socratic-ai-in-education-transforming-answer-engines-into/" target="_blank">(2025). Socratic AI in Education: Transforming Answer Engines into Thinking Partners for Deeper Learning. *Complete AI Training*.</a></p>
+                    <p><a href="https://www.meratutor.ai/lms/blog/socratic-learning/" target="_blank">(2025). Redefining EdTech: Socratic Learning in Action with ChatGPT. *MeraTutor.ai*.</a></p>
+                    <p><a href="https://www.makebot.ai/blog/cojunggo-gyoyugyi-mirae-saengseonghyeong-aiga-yeoleoganeun-cangyijeog-hagseub-hyeogmyeong" target="_blank">(2025). 초중고 교육의 미래: 생성형 AI가 열어가는 창의적 학습 혁명. *Makebot.ai Blog*.</a></p>
+                    <p><a href="https://journal.kace.re.kr/xml/42093/42093.pdf" target="_blank">(2024). 초중등교육에서 생성형 AI의 교육적 활용에 대한 주제 범위 문헌고찰. *한국교육정보미디어학회*.</a></p>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- Custom Alert Modal -->
+    <div id="customAlert" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50" style="display:none;">
+        <div class="bg-white p-6 rounded-lg shadow-xl w-11/12 md:w-1/3">
+            <h4 class="text-lg font-bold text-slate-800">알림</h4>
+            <p id="customAlertMessage" class="mt-4 text-slate-600"></p>
+            <button onclick="closeCustomAlert()" class="gemini-button mt-6 w-full">확인</button>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 'page1';
+        let currentSubPage = 'page3-1';
+
+        function showPage(pageId) {
+            // Hide all main pages
+            document.querySelectorAll('.page-content').forEach(page => {
+                page.style.display = 'none';
+            });
+            // Show selected main page
+            document.getElementById(pageId).style.display = 'block';
+
+            // Update main nav button styles
+            document.querySelectorAll('.nav-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.getElementById('nav-' + pageId).classList.add('active');
+            
+            currentPage = pageId;
+            
+            // If navigating to page 3, ensure its default sub-tab is shown
+            if (pageId === 'page3') {
+                showSubPage('page3-1');
+            }
+        }
+
+        function showSubPage(subPageId) {
+            // Hide all sub-pages within page 3
+            document.querySelectorAll('#page3 .sub-page-content').forEach(page => {
+                page.style.display = 'none';
+            });
+            // Show selected sub-page
+            document.getElementById(subPageId).style.display = 'block';
+
+            // Update sub-nav button styles
+            document.querySelectorAll('#page3 .sub-nav-button').forEach(button => {
+                button.classList.remove('active');
+            });
+            document.getElementById('nav-' + subPageId).classList.add('active');
+            
+            currentSubPage = subPageId;
+
+            // Hide loading indicator when switching sub-tabs
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'none';
+            }
+        }
+        
+        // --- Gemini API Functions ---
+
+        // (변경 1) API 키를 브라우저에서 완전히 제거합니다.
+        // const apiKey = ""; // 이 줄이 삭제되었습니다.
+
+        /**
+         * Shows or hides the loading spinner and disables buttons.
+         * @param {boolean} isLoading - Whether to show the loader.
+         */
+        function setLoading(isLoading) {
+            const loadingIndicator = document.getElementById('loadingIndicator');
+            const askButton = document.getElementById('askButton');
+            const debateButton = document.getElementById('debateButton');
+
+            if (isLoading) {
+                loadingIndicator.style.display = 'block';
+                askButton.disabled = true;
+                if(debateButton) debateButton.disabled = true; // debateButton이 존재할 때만 비활성화
+            } else {
+                loadingIndicator.style.display = 'none';
+                askButton.disabled = false;
+                if(debateButton) debateButton.disabled = false; // debateButton이 존재할 때만 활성화
+            }
+        }
+
+        /**
+         * Calls the Gemini API with exponential backoff.
+         * @param {string} prompt - The user prompt.
+         * @param {string | null} systemPrompt - The system instruction.
+         * @param {number} retries - Number of retries left.
+         * @param {number} delay - Delay in ms.
+         * @returns {Promise<string>} - The AI's text response.
+         */
+        async function callGeminiAPI(prompt, systemPrompt = null, retries = 3, delay = 1000) {
+            setLoading(true);
+            
+            // (변경 2-1) Google API 대신 우리 서버 프록시 주소를 호출합니다.
+            const apiUrl = "/api/gemini"; 
+
+            // (변경 2-2) payload를 fetch의 body로 전달합니다.
+            const payload = {
+                prompt: prompt,
+                systemPrompt: systemPrompt
+            };
+
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload) // 서버 프록시로 프롬프트를 전송
+                });
+
+                if (!response.ok) {
+                    // (변경 2-3) 서버에서 받은 오류 메시지를 표시
+                    const errorBody = await response.text();
+                    throw new Error(`HTTP error! status: ${response.status}, body: ${errorBody}`);
+                }
+
+                const result = await response.json();
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    
+                    setLoading(false);
+                    return result.candidates[0].content.parts[0].text;
+                } else {
+                    // (변경 2-4) Google API가 아닌 프록시에서 다른 오류를 보낼 경우
+                    if (result.error) {
+                        throw new Error(result.error.message);
+                    }
+                    // (변경 2-5) Google API가 원하는 응답을 주지 않았을 때
+                    if (result.promptFeedback) {
+                         throw new Error(`API request blocked due to safety settings: ${result.promptFeedback.blockReason}`);
+                    }
+                    throw new Error("Invalid API response structure from proxy.");
+                }
+
+            } catch (error) {
+                if (retries > 0) {
+                    await new Promise(res => setTimeout(res, delay));
+                    return callGeminiAPI(prompt, systemPrompt, retries - 1, delay * 2);
+                } else {
+                    setLoading(false);
+                    return `Error: AI 응답을 가져오는 데 실패했습니다. (${error.message})`;
+                }
+            }
+        }
+
+        /**
+         * Step 1: Ask AI for a definition.
+         */
+        async function runStep1() {
+            const concept = document.getElementById('conceptInput').value;
+            if (!concept) {
+                showCustomAlert("핵심 개념을 입력해주세요.");
+                return;
+            }
+
+            // Hide previous results
+            document.getElementById('step2Container').style.display = 'none';
+            document.getElementById('step3Container').style.display = 'none';
+
+            const systemPrompt = "You are a helpful assistant for a graduate student in Education. Please define the following key concept clearly and concisely. Respond in Korean.";
+            const userPrompt = `Please define: "${concept}"`;
+
+            const responseText = await callGeminiAPI(userPrompt, systemPrompt);
+            
+            document.getElementById('aiResponse1').innerText = responseText;
+            document.getElementById('step2Container').style.display = 'block';
+        }
+
+        /**
+         * Step 3: Start a debate with the AI.
+         */
+        async function runStep3() {
+            const concept = document.getElementById('conceptInput').value;
+            const definition = document.getElementById('aiResponse1').innerText;
+            const critique = document.getElementById('critiqueInput').value;
+
+            if (!critique) {
+                showCustomAlert("AI의 응답에 대한 비판을 입력해주세요.");
+                return;
+            }
+
+            // Hide previous debate result
+            document.getElementById('step3Container').style.display = 'none';
+
+            const systemPrompt = "You are a Socratic debate partner for a graduate student. Your role is to take a counter-argument position. A student has provided a key concept, you provided a definition, and the student has provided a critique of your definition. Now, you must challenge the student's critique and engage them in a debate to deepen their thinking. Be critical, constructive, and ask probing questions. Do not simply agree. Your goal is to make the student think more deeply. Respond in Korean.";
+            
+            const userPrompt = `Here is the context:\n1. Key Concept: ${concept}\n2. My (AI's) Original Definition: ${definition}\n3. Student's Critique: ${critique}\n\nYour Task: Now, start the debate by challenging the student's critique.`;
+
+            const responseText = await callGeminiAPI(userPrompt, systemPrompt);
+
+            document.getElementById('aiResponse2').innerText = responseText;
+            document.getElementById('step3Container').style.display = 'block';
+        }
+
+        /**
+         * Shows the custom alert modal.
+         * @param {string} message - The message to display.
+         */
+        function showCustomAlert(message) {
+            document.getElementById('customAlertMessage').innerText = message;
+            document.getElementById('customAlert').style.display = 'flex';
+        }
+
+        /**
+         * Closes the custom alert modal.
+         */
+        function closeCustomAlert() {
+            document.getElementById('customAlert').style.display = 'none';
+        }
+
+
+        // Initialize the first page on load
+        document.addEventListener('DOMContentLoaded', () => {
+            showPage(currentPage);
+        });
+    </script>
+
+</body>
+</html>
