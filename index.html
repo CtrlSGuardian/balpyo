@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- (추가) 검색엔진이 이 페이지를 수집(색인)하지 못하도록 차단합니다. -->
     <meta name="robots" content="noindex, nofollow">
-    <title>생성형 AI 시대의 학습과학 탐색기</title>
+    <title>생성형 AI 시대와 '사고'하는 법</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -265,7 +265,7 @@
                 <i class="fa-solid fa-compass-drafting mr-2"></i>새로운 교수설계
             </button>
             <button id="nav-page4" class="nav-button" onclick="showPage('page4')">
-                <i class="fa-solid fa-flag-checkered mr-2"></i>결론
+                <i class="fa-solid fa-flag-checkered mr-2"></i>결론: 인지적 몰입
             </button>
             <button id="nav-page5" class="nav-button" onclick="showPage('page5')">
                 <i class="fa-solid fa-book mr-2"></i>참고문헌
@@ -277,7 +277,7 @@
 
             <!-- Page 1: The Dilemma (Slide 2) -->
             <div id="page1" class="page-content">
-                <h2 class="text-2xl font-bold mb-6">화두 던지기: AI는 '사고'의 기회를 박탈하는가?</h2>
+                <h2 class="text-2xl font-bold mb-6">서론: 생성형 AI와 인지적 외주화(Cognitive Offloading)의 딜레마</h2>
                 <p class="mb-8 text-slate-700 leading-relaxed">
                     생성형 AI는 학습에 강력한 기회를 제공하지만, '정답'이 아닌 '사고 과정'이 중요한 학습 영역에서는 근본적인 딜레마를 안겨줍니다. 이는 기술의 수용을 넘어, 교육의 본질이 무엇인지 우리에게 묻고 있습니다.
                 </p>
@@ -341,6 +341,9 @@
                     <button id="nav-page3-2" class="sub-nav-button" onclick="showSubPage('page3-2')">
                         <i class="fa-solid fa-flask-vial mr-2"></i>교수설계 예시
                     </button>
+                    <button id="nav-page3-3" class="sub-nav-button" onclick="showSubPage('page3-3')">
+                        <i class="fa-solid fa-clipboard-check mr-2"></i>평가 전략
+                    </button>                    
                 </div>
 
                 <!-- Sub-Page 3-1: New Roles (Slide 5) -->
@@ -372,8 +375,13 @@
                         <!-- Left Column: Static Image -->
                         <div class="rounded-lg overflow-hidden shadow-lg sticky top-8">
                             <div class="p-4 bg-slate-50">
-                                <h4 class="font-bold text-lg text-blue-800">교수설계 모델</h4>
-                                <p class="text-sm text-slate-600 mt-1">AI를 단순 '답변자'가 아닌 '사고 촉진자'로 활용하는 3단계 상호작용 (Ask-Critique-Debate) 모델입니다.</p>
+                                <h4 class="font-bold text-lg text-blue-800">Socratic AI Loop 모델</h4>
+                                <p class="text-sm text-slate-600 mt-1 mb-4">AI를 단순 '답변자'가 아닌 '사고 촉진자'로 활용하는 3단계 상호작용 (Ask-Critique-Debate) 모델입니다.</p>
+                                <ul class="text-sm text-slate-600 space-y-2 list-disc pl-4">
+                                    <li><strong>Ask:</strong> AI에게 개념 정의를 요청</li>
+                                    <li><strong>Critique:</strong> AI 답변의 한계 비판</li>
+                                    <li><strong>Debate:</strong> AI의 반론을 통한 사고 심화</li>
+                                </ul>
                             </div>
                         </div>
 
@@ -420,15 +428,86 @@
                                 </div>
 
                             </div>
+                                <div class="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-xs text-yellow-800">
+                                    <i class="fa-solid fa-triangle-exclamation mr-1"></i>
+                                    <strong>AI 윤리 및 한계:</strong> 본 시뮬레이션은 Google Gemini Pro 모델을 기반으로 하며, 할루시네이션(Hallucination)이 발생할 수 있습니다. AI의 답변을 맹신하지 말고 비판적으로 검증하십시오.
+                                </div>                            
                         </div>
                     </div>
                 </div>
             </div>
+               <div id="page3-3" class="sub-page-content" style="display:none;">
+                    <div class="mb-8">
+                        <h3 class="text-xl font-bold text-blue-800 mb-4">결과(Output)가 아닌 과정(Process)을 평가하다</h3>
+                        <p class="text-slate-700 leading-relaxed">
+                            생성형 AI 시대에 '사고력'을 가르치기 위해서는, 학습자가 AI에게서 어떤 답을 얻었는지가 아니라, <strong>AI와 어떻게 상호작용하며 사고를 확장했는지</strong>를 평가해야 합니다. 이는 '정답 중심 평가'에서 '과정 중심 평가'로의 근본적인 전환을 의미합니다.
+                        </p>
+                    </div>
 
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <!-- Metric 1 -->
+                        <div class="tile">
+                            <div class="icon"><i class="fa-solid fa-comments-question"></i></div>
+                            <h3 class="text-lg font-bold">1. 질문의 질 (Quality of Prompting)</h3>
+                            <p class="text-sm">"단순한 정보 검색이 아닌, 논리적이고 구체적인 프롬프트를 설계했는가?"</p>
+                            <p class="text-xs text-slate-500 mt-2">학습자가 입력한 프롬프트의 정교함과 단계적 심화 과정을 평가합니다.</p>
+                            <p class="text-xs text-blue-500 mt-1">Source: MeraTutor.ai (2025)</p>
+                        </div>
+                        
+                        <!-- Metric 2 -->
+                        <div class="tile">
+                            <div class="icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                            <h3 class="text-lg font-bold">2. 비판적 검증 (Critical Evaluation)</h3>
+                            <p class="text-sm">"AI의 답변을 맹신하지 않고, 오류나 편향을 찾아내어 비판했는가?"</p>
+                            <p class="text-xs text-slate-500 mt-2">AI 답변의 한계를 지적하고 수정 제안을 한 기록(Critique)을 평가합니다.</p>
+                            <p class="text-xs text-blue-500 mt-1">Source: MDPI (2025)</p>
+                        </div>
+
+                        <!-- Metric 3 -->
+                        <div class="tile">
+                            <div class="icon"><i class="fa-solid fa-timeline"></i></div>
+                            <h3 class="text-lg font-bold">3. 사고의 확장 (Reflection)</h3>
+                            <p class="text-sm">"AI와의 대화를 통해 자신의 초기 생각이 어떻게 변화하고 발전했는가?"</p>
+                            <p class="text-xs text-slate-500 mt-2">상호작용 전후의 사고 변화를 기록한 '성찰 저널(Reflection Journal)'을 평가합니다.</p>
+                            <p class="text-xs text-blue-500 mt-1">Source: IJAHSS (2024)</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-8 p-4 bg-blue-50 border border-blue-100 rounded-lg">
+                        <strong class="text-blue-900 block mb-2"><i class="fa-solid fa-lightbulb mr-2"></i>Key Takeaway</strong>
+                        <p class="text-slate-700 text-sm">
+                            "평가의 대상은 'AI가 생성한 에세이'가 아니라, 그 에세이를 완성하기 위해 학습자가 수행한 <strong>'질문-검증-수정'의 전체 로그(Log)</strong>여야 합니다."
+                        </p>
+                        <p class="text-xs text-blue-500 mt-2 text-right">Source: KACE (2024)</p>
+                    </div>
+                </div>
+
+            </div>
+
+            
             <!-- Page 4: Conclusion (Slide 7) -->
             <div id="page4" class="page-content" style="display:none;">
-                <h2 class="text-2xl font-bold mb-6">결론</h2>
-                <p class="mb-8 text-slate-700 leading-relaxed">
+                <h2 class="text-2xl font-bold mb-6">결론: 인지적 태만에서 인지적 몰입으로</h2>
+                
+                <!-- Enhanced Text Content -->
+                <div class="space-y-6 mb-10">
+                    <div class="p-6 bg-slate-50 border-l-4 border-slate-400 rounded-r-lg">
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">1. 위기: 우리는 생각하는 힘을 잃고 있는가?</h3>
+                        <p class="text-slate-700 leading-relaxed">
+                            생성형 AI는 우리에게 즉각적인 '정답'을 제공합니다. 인간은 본능적으로 인지적 노력을 최소화하려는 '인지적 구두쇠(Cognitive Miser)' 성향이 있기에, AI에 대한 의존은 필연적으로 <strong>'인지적 외주화(Cognitive Offloading)'</strong>를 초래할 위험이 있습니다. 질문하기도 전에 답이 주어지는 환경에서, 학습자는 스스로 고민하고 논리를 구성할 기회를 박탈당할 수 있습니다.
+                        </p>
+                    </div>
+
+                    <div class="p-6 bg-blue-50 border-l-4 border-blue-500 rounded-r-lg">
+                        <h3 class="text-lg font-bold text-blue-900 mb-2">2. 전환: '정답'에서 '검증'으로의 이동</h3>
+                        <p class="text-slate-700 leading-relaxed">
+                            하지만 역설적이게도, AI의 부정확성(Hallucination)은 우리에게 새로운 교육적 기회를 제공합니다. AI가 완벽하지 않기 때문에, 우리는 AI의 답변을 의심하고, 검증하고, 비판해야 합니다. 이제 교육의 초점은 '지식의 습득'에서 <strong>'지식의 타당성 평가(Evaluative Judgment)'</strong>로 이동해야 합니다.
+                        </p>
+                    </div>
+
+                    <div class="p-6 bg-white border border-slate-200 rounded-lg shadow-sm">
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">3. 우리의 역할: '생각의 마찰'을 설계하다</h3>
+                        <p class="text-slate-700 leading-relaxed">
                     결론적으로, AI의 교육적 가치는 기술 자체가 아닌 우리의 '설계'에 달려있습니다. 학습과학은 AI를 단순한 정답 제공자에서 강력한 사고 촉진 도구로 변화시킬 수 있는 핵심적인 지침을 제공합니다.
                 </p>
                 
@@ -445,13 +524,56 @@
             <!-- Page 5: References (Slide 9) -->
             <div id="page5" class="page-content" style="display:none;">
                 <h2 class="text-2xl font-bold mb-6">참고문헌 (References)</h2>
-                <div class="reference-list text-sm">
-                    <p><a href="https://www.researchgate.net/publication/390876611_Generative_Ai_In_Higher_Education_Philosophical_Sociological_And_Pedagogical_Perspectives" target="_blank">(2024). GENERATIVE AI IN HIGHER EDUCATION: PHILOSOPHICAL, SOCIOLOGICAL, AND PEDAGOGICAL PERSPECTIVES. *International Journal of Arts, Humanities and Social Sciences (IJAHSS)*.</a></p>
-                    <p><a href="https://www.mdpi.com/2227-7102/15/5/554" target="_blank">(2025). Generative Artificial Intelligence Amplifies the Role of Critical Thinking Skills and Reduces Reliance on Prior Knowledge While Promoting In-Depth Learning. *MDPI*.</a></p>
-                    <p><a href="https://completeaitraining.com/news/socratic-ai-in-education-transforming-answer-engines-into/" target="_blank">(2025). Socratic AI in Education: Transforming Answer Engines into Thinking Partners for Deeper Learning. *Complete AI Training*.</a></p>
-                    <p><a href="https://www.meratutor.ai/lms/blog/socratic-learning/" target="_blank">(2025). Redefining EdTech: Socratic Learning in Action with ChatGPT. *MeraTutor.ai*.</a></p>
-                    <p><a href="https://www.makebot.ai/blog/cojunggo-gyoyugyi-mirae-saengseonghyeong-aiga-yeoleoganeun-cangyijeog-hagseub-hyeogmyeong" target="_blank">(2025). 초중고 교육의 미래: 생성형 AI가 열어가는 창의적 학습 혁명. *Makebot.ai Blog*.</a></p>
-                    <p><a href="https://journal.kace.re.kr/xml/42093/42093.pdf" target="_blank">(2024). 초중등교육에서 생성형 AI의 교육적 활용에 대한 주제 범위 문헌고찰. *한국교육정보미디어학회*.</a></p>
+                <div class="grid gap-3">
+                    
+                    <!-- Reference 1 -->
+                    <div class="reference-item">
+                        <span class="ref-tag paper">Paper / Journal</span>
+                        <a href="https://www.researchgate.net/publication/390876611_Generative_Ai_In_Higher_Education_Philosophical_Sociological_And_Pedagogical_Perspectives" target="_blank">GENERATIVE AI IN HIGHER EDUCATION: PHILOSOPHICAL, SOCIOLOGICAL, AND PEDAGOGICAL PERSPECTIVES</a>
+                        <div class="ref-meta">IJAHSS (2024)</div>
+                        <span class="ref-used-in"><i class="fa-solid fa-link mr-1"></i>인용: 서론(딜레마) / 평가 전략(사고의 확장)</span>
+                    </div>
+
+                    <!-- Reference 2 -->
+                    <div class="reference-item">
+                        <span class="ref-tag paper">Paper / Journal</span>
+                        <a href="https://www.mdpi.com/2227-7102/15/5/554" target="_blank">Generative Artificial Intelligence Amplifies the Role of Critical Thinking Skills...</a>
+                        <div class="ref-meta">MDPI (2025)</div>
+                        <span class="ref-used-in"><i class="fa-solid fa-link mr-1"></i>인용: 학습과학(메타인지) / 평가 전략(비판적 검증)</span>
+                    </div>
+
+                    <!-- Reference 3 -->
+                    <div class="reference-item">
+                        <span class="ref-tag article">Article</span>
+                        <a href="https://completeaitraining.com/news/socratic-ai-in-education-transforming-answer-engines-into/" target="_blank">Socratic AI in Education: Transforming Answer Engines into Thinking Partners...</a>
+                        <div class="ref-meta">Complete AI Training (2025)</div>
+                        <span class="ref-used-in"><i class="fa-solid fa-link mr-1"></i>인용: 새로운 교수설계(핵심 인용구)</span>
+                    </div>
+
+                    <!-- Reference 4 -->
+                    <div class="reference-item">
+                        <span class="ref-tag article">Article</span>
+                        <a href="https://www.meratutor.ai/lms/blog/socratic-learning/" target="_blank">Redefining EdTech: Socratic Learning in Action with ChatGPT</a>
+                        <div class="ref-meta">MeraTutor.ai (2025)</div>
+                        <span class="ref-used-in"><i class="fa-solid fa-link mr-1"></i>인용: 학습과학(비계설정) / 새로운 역할(학습자) / 평가 전략(질문의 질)</span>
+                    </div>
+
+                    <!-- Reference 5 -->
+                    <div class="reference-item">
+                        <span class="ref-tag article">Article</span>
+                        <a href="https://www.makebot.ai/blog/cojunggo-gyoyugyi-mirae-saengseonghyeong-aiga-yeoleoganeun-cangyijeog-hagseub-hyeogmyeong" target="_blank">초중고 교육의 미래: 생성형 AI가 열어가는 창의적 학습 혁명</a>
+                        <div class="ref-meta">Makebot.ai Blog (2025)</div>
+                        <span class="ref-used-in"><i class="fa-solid fa-link mr-1"></i>인용: 서론(AI의 기회) / 배경 지식</span>
+                    </div>
+
+                    <!-- Reference 6 -->
+                    <div class="reference-item">
+                        <span class="ref-tag report">Report</span>
+                        <a href="https://journal.kace.re.kr/xml/42093/42093.pdf" target="_blank">초중등교육에서 생성형 AI의 교육적 활용에 대한 주제 범위 문헌고찰</a>
+                        <div class="ref-meta">한국교육정보미디어학회 / KACE (2024)</div>
+                        <span class="ref-used-in"><i class="fa-solid fa-link mr-1"></i>인용: 새로운 역할(교수자) / 결론 / 평가 전략(Key Takeaway)</span>
+                    </div>
+
                 </div>
             </div>
 
@@ -680,3 +802,4 @@
 </body>
 
 </html>
+
