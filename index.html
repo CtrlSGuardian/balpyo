@@ -1,11 +1,8 @@
-<!-- Chosen Palette: Academic Blue (#0A2342), Accent Blue (#007BFF), Light Gray (#f8fafc), White (#FFFFFF) -->
-<!-- ... (주석 동일) ... -->
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- (추가) 검색엔진이 이 페이지를 수집(색인)하지 못하도록 차단합니다. -->
     <meta name="robots" content="noindex, nofollow">
     <title>생성형 AI와 '사고'하는 법</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -55,98 +52,6 @@
             to { opacity: 1; transform: translateY(0); }
         }
         
-        /* ... (기존 스타일 동일) ... */
-        
-        .tile {
-            background-color: #f8fafc;
-            border-radius: 0.75rem;
-            border: 1px solid #e2e8f0;
-            padding: 1.5rem;
-            text-align: center;
-        }
-        .tile .icon {
-            color: #007BFF;
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
-        .tile h3 {
-            font-size: 1.25rem;
-            font-weight: 700;
-            margin-bottom: 0.75rem;
-        }
-        .tile p {
-            font-size: 0.95rem;
-            line-height: 1.6;
-            text-align: left;
-        }
-        
-        .quote-layout blockquote {
-            color: #0A2342;
-            font-size: 2.25rem;
-            font-weight: 700;
-            line-height: 1.5;
-            margin: 0;
-            padding: 0 2.5rem;
-            position: relative;
-        }
-        .quote-layout blockquote::before,
-        .quote-layout blockquote::after {
-            color: #cce5ff;
-            content: '"';
-            font-size: 6rem;
-            line-height: 0;
-            position: absolute;
-        }
-        .quote-layout blockquote::before { left: -0.5rem; top: 1.5rem; }
-        .quote-layout blockquote::after { bottom: 0.5rem; right: -0.5rem; }
-        .quote-layout cite {
-            color: #475569;
-            font-size: 1.125rem;
-            font-style: normal;
-            margin-top: 1.5rem;
-            display: block;
-        }
-        
-        .ai-prompt {
-            background-color: #f8fafc;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            border-left: 4px solid #007BFF;
-        }
-        
-        .full-bg-image {
-            background-position: center;
-            background-size: cover;
-            border-radius: 0.5rem;
-            overflow: hidden;
-        }
-        .full-bg-image .content-overlay {
-            background-color: rgba(10, 35, 66, 0.75);
-            padding: 4rem 2.5rem;
-            text-align: center;
-        }
-        .full-bg-image h2, .full-bg-image p, .full-bg-image cite {
-            color: #FFFFFF;
-        }
-        .full-bg-image h2 { font-size: 2rem; }
-        .full-bg-image p { font-size: 1.25rem; margin-top: 1rem; }
-        .full-bg-image cite { font-size: 0.875rem; margin-top: 1rem; display: block; opacity: 0.8; }
-        
-        .reference-list p {
-            font-size: 0.875rem;
-            line-height: 1.5;
-            color: #475569;
-            margin-bottom: 0.75rem;
-        }
-        .reference-list p a {
-            color: #007BFF;
-            text-decoration: none;
-            word-break: break-all;
-        }
-        .reference-list p a:hover {
-            text-decoration: underline;
-        }
-        
         /* Sub-tab for Section 3 */
         .sub-nav-button {
             padding: 0.5rem 1rem;
@@ -165,65 +70,7 @@
             animation: fadeIn 0.3s ease-in-out;
         }
 
-        /* Gemini API Feature Styles */
-        .gemini-interaction-box {
-            border: 1px solid #e2e8f0;
-            border-radius: 0.75rem;
-            padding: 1.5rem;
-            background-color: #f8fafc;
-        }
-        .gemini-interaction-box label {
-            display: block;
-            font-weight: 700;
-            color: #0A2342;
-            margin-bottom: 0.5rem;
-        }
-        .gemini-interaction-box input[type="text"],
-        .gemini-interaction-box textarea {
-            width: 100%;
-            padding: 0.75rem;
-            border-radius: 0.375rem;
-            border: 1px solid #cbd5e1;
-            font-size: 1rem;
-            transition: border-color 0.2s, box-shadow 0.2s;
-        }
-        .gemini-interaction-box input[type="text"]:focus,
-        .gemini-interaction-box textarea:focus {
-            outline: none;
-            border-color: #007BFF;
-            box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
-        }
-        .gemini-button {
-            display: inline-block;
-            background-color: #007BFF;
-            color: #FFFFFF;
-            font-weight: 700;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.375rem;
-            cursor: pointer;
-            transition: background-color 0.2s;
-            border: none;
-            margin-top: 1rem;
-        }
-        .gemini-button:hover {
-            background-color: #0056b3;
-        }
-        .gemini-button:disabled {
-            background-color: #a0aec0;
-            cursor: not-allowed;
-        }
-        .ai-response-box {
-            background-color: #FFFFFF;
-            border: 1px solid #e2e8f0;
-            border-radius: 0.5rem;
-            padding: 1rem;
-            margin-top: 1rem;
-            white-space: pre-wrap; /* Preserve formatting */
-            font-family: 'Noto Sans KR', sans-serif;
-            line-height: 1.7;
-            max-height: 300px;
-            overflow-y: auto;
-        }
+        /* Loading Spinner */
         .loading-spinner {
             display: none;
             width: 2rem;
@@ -239,12 +86,132 @@
             100% { transform: rotate(360deg); }
         }
 
+        /* --- Reference Section Styles (은은한 톤온톤 버전) --- */
+        .reference-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .reference-card {
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1.25rem;
+            transition: all 0.2s ease-in-out;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        /* PC 화면 가로 배치 */
+        @media (min-width: 768px) {
+            .reference-card {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .reference-content {
+                flex: 1;
+                margin-right: 2rem;
+            }
+            .ref-used-in {
+                width: 280px;
+                margin-top: 0 !important;
+                flex-shrink: 0;
+            }
+        }
+
+        .reference-card:hover {
+            transform: translateX(4px);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            border-color: #cbd5e1;
+            /* 호버 시 왼쪽 포인트 컬러: 차분한 네이비 */
+            border-left: 4px solid #f0f9ff; 
+        }
+
+        .ref-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .ref-tag {
+            font-size: 0.7rem;
+            font-weight: 700; 
+            text-transform: uppercase;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+
+        /* 은은한 톤온톤 배색 */
+        .ref-tag.paper { background-color: #f0f9ff; color: #0369a1; border: 1px solid #e0f2fe; }
+        .ref-tag.report { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
+        .ref-tag.foundational { background-color: #fafaf9; color: #57534e; border: 1px solid #e7e5e4; }
+        .ref-tag.working { background-color: #fdf4ff; color: #86198f; border: 1px solid #fae8ff; } /* Working Paper용 추가 */
+
+        .ref-title {
+            font-size: 1.05rem; 
+            font-weight: 700;
+            color: #1e293b;
+            line-height: 1.5;
+            display: block;
+            text-decoration: none;
+            margin-bottom: 0.25rem;
+        }
+
+        .ref-title:hover {
+            color: #007BFF;
+            text-decoration: underline;
+        }
+
+        .ref-meta {
+            font-size: 0.85rem;
+            color: #94a3b8; 
+        }
+
+        .ref-used-in {
+            background-color: #f8fafc;
+            border-radius: 0.375rem;
+            padding: 0.75rem;
+            font-size: 0.8rem;
+            color: #64748b;
+            border: 1px solid #f1f5f9;
+        }
+        
+        .ref-used-in strong {
+            color: #334155;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+
+        /* Common Utility for Banner Image */
+        .full-bg-image {
+            background-position: center;
+            background-size: cover;
+            border-radius: 0.5rem;
+            overflow: hidden;
+        }
+        .full-bg-image .content-overlay {
+            background-color: rgba(10, 35, 66, 0.75);
+            padding: 4rem 2.5rem;
+            text-align: center;
+        }
+        .full-bg-image h2, .full-bg-image p, .full-bg-image cite {
+            color: #FFFFFF;
+        }
+        .full-bg-image h2 { font-size: 2rem; }
+        .full-bg-image p { font-size: 1.25rem; margin-top: 1rem; }
+
     </style>
 </head>
 <body>
 
     <div class="app-container">
-        <!-- Header -->
         <header class="p-6 md:p-8 border-b border-slate-200">
             <h1 class="text-3xl md:text-4xl font-bold text-center">생성형 AI 시대, '사고'하는 법 가르치기</h1>
             <p class="text-center text-lg md:text-xl text-slate-600 mt-2">사고 과정이 중요한 학습에서의 학습과학</p>
@@ -253,7 +220,6 @@
             </div>
         </header>
 
-        <!-- Navigation -->
         <nav class="p-4 flex flex-wrap justify-center gap-2 md:gap-4 border-b border-slate-200 bg-slate-50">
             <button id="nav-page1" class="nav-button active" onclick="showPage('page1')">
                 <i class="fa-solid fa-right-left mr-2"></i>서론: AI의 딜레마
@@ -272,68 +238,133 @@
             </button>
         </nav>
 
-        <!-- Main Content Area -->
         <main class="p-6 md:p-10">
 
-            <!-- Page 1: The Dilemma (Slide 2) -->
             <div id="page1" class="page-content">
                 <h2 class="text-2xl font-bold mb-6">서론: 생성형 AI와 인지적 외주화(Cognitive Offloading)의 딜레마</h2>
-                <p class="mb-8 text-slate-700 leading-relaxed">
+                <p class="mb-8 text-base text-slate-700 leading-relaxed">
                     생성형 AI는 학습에 강력한 기회를 제공하지만, '정답'이 아닌 '사고 과정'이 중요한 학습 영역에서는 근본적인 딜레마를 안겨줍니다. 이는 기술의 수용을 넘어, 교육의 본질이 무엇인지 우리에게 묻고 있습니다.
                 </p>
+                
                 <div class="grid md:grid-cols-2 gap-6">
-                    <div class="tile">
-                        <h3 class="text-blue-600">AI: 만능 정답 기계</h3>
-                        <p>생성형 AI는 방대한 지식을 기반으로, <b>'명확한 답'</b>이 있는 영역(예: 사실 확인, 코드 생성, 정보 요약)에서 <b>강력한 학습 파트너</b>입니다.<br><br> 반복적인 문제 해결에 드는 시간을 획기적으로 줄여주며, 마치 <b>24시간 작동하는 개인 튜터</b>처럼 학습 효율을 극대화합니다.</p>
+                    <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 flex flex-col h-full">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-600">
+                                <i class="fa-solid fa-bolt text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-800">기회: 정답 제공자</h3>
+                                <span class="text-xs font-bold text-blue-500 uppercase tracking-wide">The Answer Engine</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-grow">
+                            생성형 AI는 방대한 지식을 바탕으로 <strong>명확한 답이 있는 영역</strong>(사실 확인, 코딩, 요약)에서 강력한 효율성을 제공합니다. 마치 <strong>24시간 작동하는 개인 튜터</strong>처럼 학습의 물리적 제약을 제거합니다.
+                        </p>
+                        <div class="border-t border-slate-100 pt-3 mt-auto">
+                            <p class="text-xs text-slate-400 text-right">
+                                <i class="fa-solid fa-quote-left mr-1"></i> Based on Mollick & Mollick (2023)
+                            </p>
+                        </div>
                     </div>
-                    <div class="tile">
-                        <h3 class="text-blue-600">But, '사고 과정'은?</h3>
-                        <p>하지만 하나의 정답이 아닌 <b>'고차원적 사고 과정'</b>이 중요한 학문(예: 비판적 글쓰기, 윤리적 딜레마 토론)에서는 어떨까요? AI의 즉각적인 답이 학습자의 <b>'스스로 고민할 기회'</b>를 박탈하는 것은 아닐까요?</p>
-                        <p class="mt-2 text-slate-700">이는 <b>'수동적 태도'</b>와 <b>'인지적 게으름'</b>을 유발하여, 궁극적으로 <b>'AI 의존성'</b>, 즉 <b>'인지적 외주화(Cognitive Offloading)'</b>를 키울 수 있습니다.</p>                        <p class="text-xs text-slate-500 mt-4 text-left w-full">Source: IJAHSS (2024)</p>
+
+                    <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 flex flex-col h-full">
+                        <div class="flex items-center gap-4 mb-4">
+                            <div class="w-12 h-12 bg-rose-50 rounded-full flex items-center justify-center text-rose-500">
+                                <i class="fa-solid fa-triangle-exclamation text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-bold text-slate-800">위기: 인지적 외주화</h3>
+                                <span class="text-xs font-bold text-rose-500 uppercase tracking-wide">Cognitive Offloading</span>
+                            </div>
+                        </div>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-grow">
+                            하지만 '고차원적 사고'가 필요한 영역에서 AI의 즉각적인 답은 학습자의 <strong>'생각할 기회'</strong>를 박탈합니다. 이는 <strong>'사고 없는 학습(Learning without thought)'</strong>으로 이어져 학습 능력을 저하시킬 위험이 있습니다.
+                        </p>
+                        <div class="border-t border-slate-100 pt-3 mt-auto">
+                            <p class="text-xs text-slate-400 text-right">
+                                <i class="fa-solid fa-quote-left mr-1"></i> Source: Lodge et al. (2023)
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Page 2: Learning Sciences (Slide 3) -->
             <div id="page2" class="page-content" style="display:none;">
                 <h2 class="text-2xl font-bold mb-6">학습과학(Learning Sciences)의 관점</h2>
-                <p class="mb-8 text-slate-700 leading-relaxed">
-                    앞서 제기된 딜레마는 학습과학의 세 가지 핵심 관점으로 해결할 수 있습니다. 이 이론들은 AI를 '정답 기계'에서 '학습 촉진자'로 재정의하는 핵심 기반이 됩니다.
+                <p class="mb-8 text-base text-slate-700 leading-relaxed">
+                    앞서 제기된 딜레마는 학습과학의 세 가지 핵심 관점으로 해결할 수 있습니다. 이 이론들은 AI를 단순히 '편리한 도구'가 아닌 '사고의 확장 도구'로 재정의하는 기반이 됩니다.
                 </p>
+                
                 <div class="grid md:grid-cols-3 gap-6">
-                    <div class="tile">
-                        <div class="icon"><i class="fa-solid fa-puzzle-piece"></i></div>
-                        <h3>구성주의 (Constructivism)</h3>
-                        <p>학습은 지식의 수동적 수용이 아닌, <b>'능동적인 의미 구성(Active Meaning-Making)'</b> 과정입니다.</p>
+                    <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 flex flex-col h-full">
+                        <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 mb-4">
+                            <i class="fa-solid fa-puzzle-piece text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">구성주의 (Constructivism)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-4 flex-grow">
+                            학습은 지식의 수동적 수용이 아닌, 학습자가 경험을 통해 <strong>'능동적으로 의미를 구성(Meaning-Making)'</strong>하는 과정입니다.
+                        </p>
+                        <div class="bg-slate-50 rounded-lg p-3 border border-slate-100">
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-1"><i class="fa-solid fa-robot mr-1"></i> In AI Era</p>
+                            <p class="text-slate-700 text-sm leading-snug">
+                                AI의 답변은 '최종 결과물'이 아니라, 나만의 지식을 조립하기 위한 <strong>'원재료(Raw Material)'</strong>가 되어야 합니다.
+                            </p>
+                        </div>
                     </div>
-                    <div class="tile">
-                        <div class="icon"><i class="fa-solid fa-brain"></i></div>
-                        <h3>메타인지 (Metacognition)</h3>
-                        <p>자신의 사고 과정을 인지하고 조절하는 <b>'생각에 대한 생각'</b>입니다.</p>
-                        <p class="text-xs text-slate-500 mt-2 text-left w-full">Source: MDPI (2025)</p>
+
+                    <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 flex flex-col h-full">
+                        <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 mb-4">
+                            <i class="fa-solid fa-brain text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">메타인지 (Metacognition)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-2 flex-grow">
+                            자신의 인지 과정을 객관적으로 바라보고 조절하는 능력, 즉 <strong>'생각에 대한 생각(Thinking about Thinking)'</strong>입니다.
+                            <span class="text-xs text-slate-400 block mt-1">(Source: MDPI, 2025)</span>
+                        </p>
+                        <div class="bg-slate-50 rounded-lg p-3 border border-slate-100 mt-2">
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-1"><i class="fa-solid fa-robot mr-1"></i> In AI Era</p>
+                            <p class="text-slate-700 text-sm leading-snug">
+                                AI의 답변이 정확한지, 내 의도에 부합하는지 끊임없이 <strong>'모니터링'하고 '검증'</strong>하는 과정이 필수적입니다.
+                            </p>
+                        </div>
                     </div>
-                    <div class="tile">
-                        <div class="icon"><i class="fa-solid fa-person-digging"></i></div>
-                        <h3>비계설정 (Scaffolding)</h3>
-                        <p>'정답'을 직접 주는 것이 아닌, 스스로 답을 찾도록 돕는 <b>'임시적인 지원(Temporary Support)'</b>입니다.</p>
-                        <p class="text-xs text-slate-500 mt-2 text-left w-full">Source: MeraTutor.ai (2025)</p>
+
+                    <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 flex flex-col h-full">
+                        <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 mb-4">
+                            <i class="fa-solid fa-person-digging text-xl"></i>
+                        </div>
+                        <h3 class="text-lg font-bold text-slate-800 mb-2">비계설정 (Scaffolding)</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-2 flex-grow">
+                            학습자가 스스로 문제를 해결할 수 있도록 돕는 <strong>'임시적인 지원(Temporary Support)'</strong> 구조입니다.
+                            <span class="text-xs text-slate-400 block mt-1">(Source: Wood et al., 1976)</span>
+                        </p>
+                        <div class="bg-slate-50 rounded-lg p-3 border border-slate-100 mt-2">
+                            <p class="text-xs font-bold text-slate-400 uppercase mb-1"><i class="fa-solid fa-robot mr-1"></i> In AI Era</p>
+                            <p class="text-slate-700 text-sm leading-snug">
+                                AI는 <strong>'단순한 해답 제공자(Answer Engine)'</strong>가 아니라, 학습자가 다음 단계로 도약할 수 있도록 돕는 <strong>'발판'</strong> 역할을 해야 합니다.
+                            </p>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Page 3: New Strategy (Slides 4, 5, 6 +New Assessment)) -->
             <div id="page3" class="page-content" style="display:none;">
                 <h2 class="text-2xl font-bold mb-6">새로운 교수설계: '사고 파트너'로의 전환</h2>
-                <p class="mb-8 text-slate-700 leading-relaxed">
-                    이론을 바탕으로, 우리는 AI를 '정답을 주는 전문가(Answer Engine)'가 아닌, '사고를 촉진하는 파트너(Thinking Partner)'로 재설계할 수 있습니다. 이는 교수자와 학습자의 역할을 재정의하고, 구체적인 교수설계(ID) 전략을 통해 구현됩니다.
+                <p class="mb-8 text-base text-slate-700 leading-relaxed">
+                    이론을 바탕으로, 우리는 AI를 '정답을 주는 전문가'가 아닌 '사고를 촉진하는 파트너'로 재설계할 수 있습니다. 이는 교수자와 학습자의 역할을 재정의하고, 구체적인 교수설계(ID) 전략을 통해 구현됩니다.
                 </p>
-                <div class="text-center w-full max-w-6xl mx-auto my-10 quote-layout">
-                    <blockquote>"AI를 '정답을 주는 전문가(Answer Engine)'가 아닌, <br>
-                    '사고를 촉진하는 파트너(Thinking Partner)'로 재설계해야 합니다."</blockquote>
-                    <cite>— Complete AI Training (2025)</cite>
+                
+                <div class="bg-white border border-slate-200 rounded-xl p-8 mb-10 text-center shadow-sm">
+                    <i class="fa-solid fa-quote-left text-slate-300 text-3xl mb-4"></i>
+                    <h3 class="text-xl md:text-2xl font-bold text-slate-800 leading-relaxed">
+                        AI를 <span class="text-slate-400">'정답을 주는 전문가(Answer Engine)'</span>가 아닌,<br class="hidden md:block">
+                        <span class="text-blue-600">'사고를 촉진하는 파트너(Thinking Partner)'</span>로<br class="hidden md:block"> 재설계해야 합니다.
+                    </h3>
+                    <div class="mt-4 text-sm text-slate-400 font-medium">
+                        — Mollick & Mollick (2023)
+                    </div>
                 </div>
                 
-                <!-- Sub-navigation for Page 3 -->
                 <div class="flex justify-center gap-4 mb-8 border-b border-slate-200 pb-4">
                     <button id="nav-page3-1" class="sub-nav-button active" onclick="showSubPage('page3-1')">
                         <i class="fa-solid fa-users-gear mr-2"></i>새로운 역할
@@ -346,245 +377,309 @@
                     </button>                    
                 </div>
 
-                <!-- Sub-Page 3-1: New Roles (Slide 5) -->
                 <div id="page3-1" class="sub-page-content">
                     <div class="grid md:grid-cols-2 gap-6">
-                        <div class="flex items-start gap-4 p-4 tile">
-                            <i class="fa-solid fa-pen-ruler text-3xl text-blue-600 mt-1"></i>
-                            <div>
-                                <strong class="text-xl font-bold text-gray-800 block mb-1">교수자 (Instructor): '설계자'</strong>
-                                <p class="text-slate-700">"AI가 생성한 답을 '비판'하게 하거나, '대안적 관점'을 제시하도록 하는 프롬프트 설계가 중요합니다."</p>
-                                <p class="text-xs text-slate-500 mt-2">Source: KACE (2024)</p>
+                        
+                        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                            <div class="flex items-start gap-5">
+                                <div class="w-12 h-12 bg-slate-100 rounded-full flex items-center justify-center text-slate-600 flex-shrink-0">
+                                    <i class="fa-solid fa-pen-ruler text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-slate-800">교수자 (Instructor)</h4>
+                                    <p class="text-sm text-slate-500 font-medium mb-3">"지식 전달자 &rarr; 경험 설계자"</p>
+                                    <div class="bg-slate-50 rounded-lg p-3 mb-2 border border-slate-100">
+                                        <p class="text-xs font-bold text-slate-400 uppercase mb-1">Key Action</p>
+                                        <p class="text-slate-700 text-sm leading-snug">
+                                            AI 답변을 <strong>비판</strong>하거나 <strong>대안적 관점</strong>을 제시하도록 유도하는 <strong>'프롬프트 가이드'</strong> 설계
+                                        </p>
+                                    </div>
+                                    <p class="text-xs text-slate-400 text-right mt-1">Source: KACE (2024)</p>
+                                </div>
                             </div>
                         </div>
-                        <div class="flex items-start gap-4 p-4 tile">
-                            <i class="fa-solid fa-user-graduate text-3xl text-blue-600 mt-1"></i>
-                            <div>
-                                <strong class="text-xl font-bold text-gray-800 block mb-1">학습자 (Learner): '적극적 탐구자'</strong>
-                                <p class="text-slate-700">"AI를 '소크라테스식 대화 파트너'로 활용하여, 자신의 논리를 정교화하고 반론을 탐색합니다."</p>
-                                <p class="text-xs text-slate-500 mt-2">Source: MeraTutor.ai (2025)</p>
+
+                        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1">
+                            <div class="flex items-start gap-5">
+                                <div class="w-12 h-12 bg-blue-50 rounded-full flex items-center justify-center text-blue-600 flex-shrink-0">
+                                    <i class="fa-solid fa-user-graduate text-xl"></i>
+                                </div>
+                                <div>
+                                    <h4 class="text-lg font-bold text-slate-800">학습자 (Learner)</h4>
+                                    <p class="text-sm text-blue-500 font-medium mb-3">"수동적 수용자 &rarr; 적극적 탐구자"</p>
+                                    <div class="bg-blue-50/50 rounded-lg p-3 mb-2 border border-blue-50">
+                                        <p class="text-xs font-bold text-blue-400 uppercase mb-1">Key Action</p>
+                                        <p class="text-slate-700 text-sm leading-snug">
+                                            AI를 <strong>'소크라테스식 파트너'</strong>로 활용하여, 논리를 정교화하고 반론을 탐색하는 <strong>주체적 학습</strong>
+                                        </p>
+                                    </div>
+                                    <p class="text-xs text-slate-400 text-right mt-1">Source: Mollick & Mollick (2023)</p>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="mt-6 text-center">
+                        <p class="text-slate-500 text-sm bg-slate-50 inline-block px-4 py-2 rounded-full border border-slate-200">
+                            <i class="fa-solid fa-arrow-right-arrow-left mr-2 text-slate-400"></i>
+                            AI는 이 두 역할 사이를 매개하는 <strong>'사고의 도구'</strong>가 되어야 합니다.
+                        </p>
+                    </div>
                 </div>
 
-                <!-- Sub-Page 3-2: ID Example (Slide 6) -->
                 <div id="page3-2" class="sub-page-content" style="display:none;">
                     <div class="grid md:grid-cols-1 gap-8 items-start">
                         
-                        <!-- Left Column: Static Image -->
-                        <div class="rounded-lg overflow-hidden shadow-lg sticky top-8">
-                            <div class="p-4 bg-slate-50">
-                                <h4 class="font-bold text-lg text-blue-800">Socratic AI Loop 모델</h4>
-                                <p class="text-sm text-slate-600 mt-1 mb-4">AI를 단순 '답변자'가 아닌 '사고 촉진자'로 활용하는 3단계 상호작용 (Ask-Critique-Debate) 모델입니다.</p>
-                                <ul class="text-sm text-slate-600 space-y-2 list-disc pl-4">
-                                    <li><strong>Ask:</strong> AI에게 개념 정의를 요청</li>
-                                    <li><strong>Critique:</strong> AI 답변의 한계 비판</li>
-                                    <li><strong>Debate:</strong> AI의 반론을 통한 사고 심화</li>
-                                </ul>
+                        <div class="rounded-lg overflow-hidden shadow-sm border border-slate-200 sticky top-8">
+                            <div class="p-5 bg-slate-50">
+                                <h4 class="font-bold text-lg text-blue-900 mb-2"><i class="fa-solid fa-arrows-spin mr-2"></i>Socratic AI Loop 모델</h4>
+                                <p class="text-sm text-slate-600 mb-4">AI를 단순 '답변자'가 아닌 '사고 촉진자'로 활용하는 3단계 상호작용 모델입니다.</p>
+                                <div class="space-y-3 text-sm">
+                                    <div class="flex items-center gap-3">
+                                        <span class="bg-slate-200 text-slate-700 font-bold px-2 py-1 rounded text-xs">Step 1</span>
+                                        <span><strong>Ask:</strong> 개념 정의 요청</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="bg-blue-100 text-blue-700 font-bold px-2 py-1 rounded text-xs">Step 2</span>
+                                        <span><strong>Critique:</strong> 답변의 한계 비판 (핵심)</span>
+                                    </div>
+                                    <div class="flex items-center gap-3">
+                                        <span class="bg-slate-200 text-slate-700 font-bold px-2 py-1 rounded text-xs">Step 3</span>
+                                        <span><strong>Debate:</strong> 반론을 통한 심화</span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
 
-                        <!-- Right Column: Gemini API Interaction -->
                         <div class="space-y-6">
-                            <h3 class="text-2xl font-bold text-blue-800">✨ AI 사고 파트너 (실행)</h3>
-                            <p class="text-slate-700">
-                                아래의 3단계 교수설계를 직접 실행해 보세요. AI를 '정답 기계'가 아닌 '소크라테스식 토론 파트너'로 활용합니다.
-                            </p>
-
-                            <!-- Gemini Interaction Box -->
-                            <div class="gemini-interaction-box space-y-4">
-                                <!-- Step 1: Ask -->
-                                <div>
-                                    <label for="conceptInput">1. (Ask) 핵심 개념 입력:</label>
-                                    <input type="text" id="conceptInput" class="gemini-input" placeholder="예: 메타인지, 구성주의, 비계설정...">
-                                    <button id="askButton" class="gemini-button" onclick="runStep1()">✨ 1단계: AI에게 정의 요청하기</button>
+                            <div>
+                                <h3 class="text-2xl font-bold text-blue-800">✨ AI 사고 파트너 실습</h3>
+                                <p class="text-slate-600 mt-1">아래 단계에 따라 AI와 대화하며 사고를 확장해 보세요.</p>
+                            </div>
+                            <div class="border border-slate-200 rounded-xl p-6 bg-white shadow-sm space-y-6">
+                                <div class="relative">
+                                    <span class="absolute -left-2 -top-3 bg-slate-600 text-white text-xs font-bold px-2 py-1 rounded">Step 1. 질문(Ask)</span>
+                                    <div class="border border-slate-300 rounded-lg p-4 mt-2 bg-slate-50">
+                                        <label for="conceptInput" class="block text-sm font-bold text-slate-700 mb-2">학습할 핵심 개념을 입력하세요:</label>
+                                        <div class="flex gap-2">
+                                            <input type="text" id="conceptInput" class="flex-1 p-2 border border-slate-300 rounded focus:border-blue-500 focus:outline-none" placeholder="예: 메타인지, 구성주의, 비계설정...">
+                                            <button id="askButton" class="bg-slate-700 hover:bg-slate-800 text-white font-bold py-2 px-4 rounded transition" onclick="runStep1()">
+                                                <i class="fa-solid fa-paper-plane"></i>
+                                            </button>
+                                        </div>
+                                    </div>
                                 </div>
-
-                                <!-- Loading Spinner -->
                                 <div id="loadingIndicator" class="loading-spinner"></div>
-
-                                <!-- Step 2: Critique -->
-                                <div id="step2Container" style="display:none;" class="space-y-4">
-                                    <hr>
-                                    <div>
-                                        <h4 class="text-lg font-bold text-slate-700">AI의 응답 (1단계):</h4>
-                                        <div id="aiResponse1" class="ai-response-box"></div>
+                                <div id="step2Container" style="display:none;" class="space-y-6">
+                                    <div class="flex justify-center text-slate-300"><i class="fa-solid fa-arrow-down text-xl"></i></div>
+                                    <div class="bg-white border border-slate-200 rounded-lg p-4 shadow-sm">
+                                        <h4 class="text-xs font-bold text-slate-400 uppercase mb-2">AI's Definition</h4>
+                                        <div id="aiResponse1" class="text-slate-700 text-sm leading-relaxed whitespace-pre-wrap"></div>
                                     </div>
-                                    <div>
-                                        <label for="critiqueInput">2. (Critique) AI의 응답을 비판하거나 한계점을 분석하세요:</label>
-                                        <textarea id="critiqueInput" class="gemini-textarea" rows="4" placeholder="예: 이 설명은... 점을 놓치고 있습니다. ...라는 관점이 빠졌습니다."></textarea>
-                                        <button id="debateButton" class="gemini-button" onclick="runStep3()">✨ 3단계: AI와 토론 시작하기</button>
-                                    </div>
-                                </div>
-
-                                <!-- Step 3: Debate -->
-                                <div id="step3Container" style="display:none;" class="space-y-4">
-                                    <hr>
-                                    <div>
-                                        <h4 class="text-lg font-bold text-slate-700">AI의 반론 (3단계 토론):</h4>
-                                        <div id="aiResponse2" class="ai-response-box"></div>
+                                    <div class="flex justify-center text-blue-300"><i class="fa-solid fa-arrow-down text-xl animate-bounce"></i></div>
+                                    <div class="relative">
+                                        <span class="absolute -left-2 -top-3 bg-blue-600 text-white text-xs font-bold px-2 py-1 rounded shadow-sm">Step 2. 비판(Critique)</span>
+                                        <div class="border-2 border-blue-100 bg-blue-50 rounded-lg p-5 mt-2">
+                                            <label for="critiqueInput" class="block text-sm font-bold text-blue-900 mb-2">
+                                                <i class="fa-regular fa-lightbulb mr-1"></i> 위 AI 답변의 부족한 점이나 한계를 지적해 보세요:
+                                            </label>
+                                            <textarea id="critiqueInput" class="w-full p-3 border border-blue-200 rounded-md focus:border-blue-500 focus:outline-none transition h-24 text-sm" placeholder="예: 이 설명은 ...라는 맥락을 놓치고 있습니다."></textarea>
+                                            <button id="debateButton" class="mt-3 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded transition shadow-sm" onclick="runStep3()">
+                                                <i class="fa-solid fa-comments mr-2"></i> 토론 시작하기 (Step 3)
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                                
-                                <!-- AI Ethics Disclaimer -->
+                                <div id="step3Container" style="display:none;" class="space-y-6">
+                                    <div class="flex justify-center text-slate-300"><i class="fa-solid fa-arrow-down text-xl"></i></div>
+                                    <div class="relative">
+                                        <span class="absolute -left-2 -top-3 bg-slate-600 text-white text-xs font-bold px-2 py-1 rounded">Step 3. 토론(Debate)</span>
+                                        <div class="border border-slate-300 bg-slate-50 rounded-lg p-4 mt-2">
+                                            <h4 class="text-xs font-bold text-slate-500 uppercase mb-2">AI's Counter-Argument</h4>
+                                            <div id="aiResponse2" class="text-slate-800 text-sm leading-relaxed whitespace-pre-wrap"></div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-xs text-yellow-800">
                                     <i class="fa-solid fa-triangle-exclamation mr-1"></i>
                                     <strong>AI 윤리 및 한계:</strong> 본 시뮬레이션은 Google Gemini Pro 모델을 기반으로 하며, 할루시네이션(Hallucination)이 발생할 수 있습니다. AI의 답변을 맹신하지 말고 비판적으로 검증하십시오.
-                                </div>
-
+                                </div>  
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Sub-Page 3-3: Assessment Strategy (NEW) -->                
-               <div id="page3-3" class="sub-page-content" style="display:none;">
+                <div id="page3-3" class="sub-page-content" style="display:none;">
                     <div class="mb-8">
                         <h3 class="text-xl font-bold text-blue-800 mb-4">결과(Output)가 아닌 과정(Process)을 평가하다</h3>
-                        <p class="text-slate-700 leading-relaxed">
+                        <p class="text-base text-slate-700 leading-relaxed">
                             생성형 AI 시대에 '사고력'을 가르치기 위해서는, 학습자가 AI에게서 어떤 답을 얻었는지가 아니라, <strong>AI와 어떻게 상호작용하며 사고를 확장했는지</strong>를 평가해야 합니다. 이는 '정답 중심 평가'에서 '과정 중심 평가'로의 근본적인 전환을 의미합니다.
                         </p>
                     </div>
-
                     <div class="grid md:grid-cols-3 gap-6">
-                        <!-- Metric 1 -->
-                        <div class="tile">
-                            <div class="icon"><i class="fa-solid fa-circle-question"></i></div>
-                            <h3 class="text-lg font-bold">1. 질문의 질 (Quality of Prompting)</h3>
-                            <p class="text-sm">"단순한 정보 검색이 아닌, 논리적이고 구체적인 프롬프트를 설계했는가?"</p>
-                            <p class="text-xs text-slate-500 mt-2">학습자가 입력한 프롬프트의 정교함과 단계적 심화 과정을 평가합니다.</p>
-                            <p class="text-xs text-slate-500 mt-2">Source: MeraTutor.ai (2025)</p>
+                        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 text-center">
+                            <div class="icon text-blue-600 text-4xl mb-4"><i class="fa-solid fa-circle-question"></i></div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">1. 질문의 질</h3>
+                            <p class="text-sm font-bold text-slate-700 mb-2">"질문이 논리적이고 구체적인가?"</p>
+                            <p class="text-sm text-slate-600 leading-snug">프롬프트의 정교함 및 단계적 심화 과정 평가</p>
+                            <p class="text-xs text-slate-400 mt-2">Source: Mollick & Mollick (2023)</p>
                         </div>
-                        
-                        <!-- Metric 2 -->
-                        <div class="tile">
-                            <div class="icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
-                            <h3 class="text-lg font-bold">2. 비판적 검증 (Critical Evaluation)</h3>
-                            <p class="text-sm">"AI의 답변을 맹신하지 않고, 오류나 편향을 찾아내어 비판했는가?"</p>
-                            <p class="text-xs text-slate-500 mt-2">AI 답변의 한계를 지적하고 수정 제안을 한 기록(Critique)을 평가합니다.</p>
-                            <p class="text-xs text-slate-500 mt-2">Source: MDPI (2025)</p>
+                        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 text-center">
+                            <div class="icon text-blue-600 text-4xl mb-4"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">2. 비판적 검증</h3>
+                            <p class="text-sm font-bold text-slate-700 mb-2">"오류와 편향을 찾아내 비판했는가?"</p>
+                            <p class="text-sm text-slate-600 leading-snug">답변의 한계 지적 및 수정 제안 기록(Critique) 평가</p>
+                            <p class="text-xs text-slate-400 mt-2">Source: MDPI (2025)</p>
                         </div>
-
-                        <!-- Metric 3 -->
-                        <div class="tile">
-                            <div class="icon"><i class="fa-solid fa-timeline"></i></div>
-                            <h3 class="text-lg font-bold">3. 사고의 확장 (Reflection)</h3>
-                            <p class="text-sm">"AI와의 대화를 통해 자신의 초기 생각이 어떻게 변화하고 발전했는가?"</p>
-                            <p class="text-xs text-slate-500 mt-2">상호작용 전후의 사고 변화를 기록한 '성찰 저널(Reflection Journal)'을 평가합니다.</p>
-                            <p class="text-xs text-slate-500 mt-2">Source: IJAHSS (2024)</p>
+                        <div class="bg-white border border-slate-200 rounded-xl p-6 shadow-sm hover:shadow-md transition-all hover:-translate-y-1 text-center">
+                            <div class="icon text-blue-600 text-4xl mb-4"><i class="fa-solid fa-timeline"></i></div>
+                            <h3 class="text-lg font-bold text-slate-800 mb-2">3. 사고의 확장</h3>
+                            <p class="text-sm font-bold text-slate-700 mb-2">"상호작용을 통해 사고가 발전했는가?"</p>
+                            <p class="text-sm text-slate-600 leading-snug">사고 변화 과정을 기록한 '성찰 저널' 평가</p>
+                            <p class="text-xs text-slate-400 mt-2">Source: Lodge et al. (2023)</p>
                         </div>
                     </div>
-                    
                     <div class="mt-8 p-4 bg-blue-50 border border-blue-100 rounded-lg">
                         <strong class="text-blue-900 block mb-2"><i class="fa-solid fa-lightbulb mr-2"></i>Key Takeaway</strong>
                         <p class="text-slate-700 text-sm">
                             "평가의 대상은 'AI가 생성한 에세이'가 아니라, 그 에세이를 완성하기 위해 학습자가 수행한 <strong>'질문-검증-수정'의 전체 로그(Log)</strong>여야 합니다."
                         </p>
-                        <p class="text-xs text-slate-500 mt-2">Source: KACE (2024)</p>
+                        <p class="text-xs text-slate-400 mt-2">Source: KACE (2024)</p>
                     </div>
                 </div>
 
             </div>
             
-            <!-- Page 4: Conclusion (Slide 7) -->
             <div id="page4" class="page-content" style="display:none;">
                 <h2 class="text-2xl font-bold mb-6">결론: 인지적 태만에서 인지적 몰입으로</h2>
-                
-                <!-- Enhanced Text Content -->
-                <div class="space-y-6 mb-10">
+                <div class="space-y-6">
                     <div class="p-6 bg-slate-50 border-l-4 border-slate-400 rounded-r-lg">
-                        <h3 class="text-lg font-bold text-slate-800 mb-2">1. 위기: 우리는 생각하는 힘을 잃고 있는가?</h3>
-                        <p class="text-slate-700 leading-relaxed">
-                            생성형 AI는 우리에게 즉각적인 '정답'을 제공합니다. 인간은 본능적으로 인지적 노력을 최소화하려는 '인지적 구두쇠(Cognitive Miser)' 성향이 있기에, AI에 대한 의존은 필연적으로 <strong>'인지적 외주화(Cognitive Offloading)'</strong>를 초래할 위험이 있습니다. 질문하기도 전에 답이 주어지는 환경에서, 학습자는 스스로 고민하고 논리를 구성할 기회를 박탈당할 수 있습니다.
-                        </p>
+                        <h3 class="text-lg font-bold text-slate-800 mb-3">1. 위기: 생각하지 않는 학습</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-sm text-slate-700">
+                            <li>인간의 본능인 '인지적 구두쇠(Cognitive Miser)' 성향과 AI의 만남</li>
+                            <li>즉각적인 정답은 <strong>'인지적 외주화(Cognitive Offloading)'</strong>를 가속화</li>
+                            <li>스스로 논리를 구성할 기회의 박탈 우려</li>
+                        </ul>
                     </div>
-
                     <div class="p-6 bg-blue-50 border-l-4 border-blue-500 rounded-r-lg">
-                        <h3 class="text-lg font-bold text-blue-900 mb-2">2. 전환: '정답'에서 '검증'으로의 이동</h3>
-                        <p class="text-slate-700 leading-relaxed">
-                            하지만 역설적이게도, AI의 부정확성(Hallucination)은 우리에게 새로운 교육적 기회를 제공합니다. AI가 완벽하지 않기 때문에, 우리는 AI의 답변을 의심하고, 검증하고, 비판해야 합니다. 이제 교육의 초점은 '지식의 습득'에서 <strong>'지식의 타당성 평가(Evaluative Judgment)'</strong>로 이동해야 합니다.
-                        </p>
+                        <h3 class="text-lg font-bold text-blue-900 mb-3">2. 전환: 정답에서 검증으로</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-sm text-slate-700">
+                            <li>역설적 기회: AI의 오류(Hallucination)는 비판적 사고의 재료</li>
+                            <li>교육의 목표 이동: 단순 지식 습득 &rarr; <strong>'타당성 평가(Evaluative Judgment)'</strong></li>
+                            <li>AI 답변을 의심하고, 검증하고, 재구성하는 능력 중요</li>
+                        </ul>
                     </div>
-
                     <div class="p-6 bg-white border border-slate-200 rounded-lg shadow-sm">
-                        <h3 class="text-lg font-bold text-slate-800 mb-2">3. 우리의 역할: '생각의 마찰'을 설계하다</h3>
-                        <p class="text-slate-700 leading-relaxed">
-                            결국 생성형 AI 시대의 교수설계란, 학습자가 편안하게 답을 얻도록 돕는 것이 아니라, 의도적으로 <strong>'바람직한 어려움(Desirable Difficulty)'</strong>을 만들어내는 과정이어야 합니다. AI와 끊임없이 문답(Ask)하고, 비판(Critique)하고, 토론(Debate)하게 함으로써, 기술이 인간의 사고를 대신하는 것이 아니라 <strong>인간의 사고를 확장하는 도구(Scaffolding)</strong>가 되도록 설계해야 합니다.
-                        </p>
-                    </div>
-                </div>
-                
-                <div class="full-bg-image my-8" style="background-image: url('https://placehold.co/1280x720/0A2342/FFFFFF?text=%EA%B2%B0%EB%A1%A0');">
-                    <div class="content-overlay">
-                        <h2 class="font-bold">AI가 학습자의 '사고'를 대신하게 할 것인가, <br>
-                            '더 깊은 사고'를 하도록 이끄는 도구가 될 것인가?</h2>
-                        <p>이것은 기술의 문제가 아닌, '학습과학(Learning Sciences)'에 기반한<br> 우리의 '교수설계적 선택(Instructional Design Choice)'에 달려있습니다.</p>
-                        <cite>Source: KACE (2024)</cite>
+                        <h3 class="text-lg font-bold text-slate-800 mb-3">3. 역할: '바람직한 어려움'의 설계</h3>
+                        <ul class="list-disc pl-5 space-y-2 text-sm text-slate-700">
+                            <li>편안한 답 대신 의도적인 <strong>'바람직한 어려움(Desirable Difficulty)'</strong> 설계</li>
+                            <li>AI와의 치열한 문답(Ask-Critique-Debate) 유도</li>
+                            <li>기술은 사고의 대체제가 아닌 <strong>'사고의 확장 도구(Scaffolding)'</strong></li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <!-- Page 5: References (Slide 9) -->
             <div id="page5" class="page-content" style="display:none;">
-                <h2 class="text-2xl font-bold mb-6">참고문헌 (References)</h2>
-                <div class="grid gap-3">
-                    
-                    <!-- Reference 1 -->
-                    <div class="reference-item">
-                        <span class="ref-tag paper">Paper / Journal</span>
-                        <a href="https://www.researchgate.net/publication/390876611_Generative_Ai_In_Higher_Education_Philosophical_Sociological_And_Pedagogical_Perspectives" target="_blank">GENERATIVE AI IN HIGHER EDUCATION: PHILOSOPHICAL, SOCIOLOGICAL, AND PEDAGOGICAL PERSPECTIVES</a>
-                        <div class="ref-meta">IJAHSS (2024)</div>
-                        <span class="ref-used-in"><i class="fa-solid fa-link mr-1"></i>인용: 서론(딜레마) / 평가 전략(사고의 확장)</span>
+                <h2 class="text-2xl font-bold mb-2">참고문헌 (References)</h2>
+                <p class="text-base text-slate-500 mb-8">본 발표 자료는 다음의 주요 학술 연구 및 문헌을 기반으로 작성되었습니다.</p>
+                
+                <div class="reference-grid">
+                    <div class="reference-card">
+                        <div class="reference-content">
+                            <div class="ref-header">
+                                <span class="ref-tag paper">Academic Paper</span>
+                                <a href="https://www.tandfonline.com/doi/full/10.1080/23735082.2023.2261131" target="_blank" class="text-slate-400 hover:text-blue-600">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                            <a href="https://www.tandfonline.com/doi/full/10.1080/23735082.2023.2261131" target="_blank" class="ref-title">
+                                Learning without thought? Generative AI and the cognitive offloading of learning
+                            </a>
+                            <div class="ref-meta">Lodge, J. M. et al. (2023)</div>
+                        </div>
+                        <div class="ref-used-in">
+                            <strong><i class="fa-solid fa-quote-left mr-1"></i> 주요 인용</strong>
+                            서론(인지적 외주화), 결론(평가 패러다임 전환)
+                        </div>
                     </div>
-
-                    <!-- Reference 2 -->
-                    <div class="reference-item">
-                        <span class="ref-tag paper">Paper / Journal</span>
-                        <a href="https://www.mdpi.com/2227-7102/15/5/554" target="_blank">Generative Artificial Intelligence Amplifies the Role of Critical Thinking Skills...</a>
-                        <div class="ref-meta">MDPI (2025)</div>
-                        <span class="ref-used-in"><i class="fa-solid fa-link mr-1"></i>인용: 학습과학(메타인지) / 평가 전략(비판적 검증)</span>
+                    <div class="reference-card">
+                        <div class="reference-content">
+                            <div class="ref-header">
+                                <span class="ref-tag working">Working Paper</span>
+                                <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4475995" target="_blank" class="text-slate-400 hover:text-blue-600">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                            <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=4475995" target="_blank" class="ref-title">
+                                Assigning AI: Seven Approaches for Students with Prompts
+                            </a>
+                            <div class="ref-meta">Mollick, E. & Mollick, L. (2023)</div>
+                        </div>
+                        <div class="ref-used-in">
+                            <strong><i class="fa-solid fa-quote-left mr-1"></i> 주요 인용</strong>
+                            새로운 교수설계(AI 튜터/비평가 역할), 사고 파트너
+                        </div>
                     </div>
-
-                    <!-- Reference 3 -->
-                    <div class="reference-item">
-                        <span class="ref-tag article">Article</span>
-                        <a href="https://completeaitraining.com/news/socratic-ai-in-education-transforming-answer-engines-into/" target="_blank">Socratic AI in Education: Transforming Answer Engines into Thinking Partners...</a>
-                        <div class="ref-meta">Complete AI Training (2025)</div>
-                        <span class="ref-used-in"><i class="fa-solid fa-link mr-1"></i>인용: 새로운 교수설계(핵심 인용구)</span>
+                    <div class="reference-card">
+                        <div class="reference-content">
+                            <div class="ref-header">
+                                <span class="ref-tag foundational">Foundational</span>
+                                <a href="https://onlinelibrary.wiley.com/doi/10.1111/j.1469-7610.1976.tb00381.x" target="_blank" class="text-slate-400 hover:text-blue-600">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                            <a href="https://onlinelibrary.wiley.com/doi/10.1111/j.1469-7610.1976.tb00381.x" target="_blank" class="ref-title">
+                                The Role of Tutoring in Problem Solving (Scaffolding Definition)
+                            </a>
+                            <div class="ref-meta">Wood, Bruner, & Ross (1976)</div>
+                        </div>
+                        <div class="ref-used-in">
+                            <strong><i class="fa-solid fa-quote-left mr-1"></i> 주요 인용</strong>
+                            학습과학(비계설정의 정의), 교수자 역할
+                        </div>
                     </div>
-
-                    <!-- Reference 4 -->
-                    <div class="reference-item">
-                        <span class="ref-tag article">Article</span>
-                        <a href="https://www.meratutor.ai/lms/blog/socratic-learning/" target="_blank">Redefining EdTech: Socratic Learning in Action with ChatGPT</a>
-                        <div class="ref-meta">MeraTutor.ai (2025)</div>
-                        <span class="ref-used-in"><i class="fa-solid fa-link mr-1"></i>인용: 학습과학(비계설정) / 새로운 역할(학습자) / 평가 전략(질문의 질)</span>
+                    <div class="reference-card">
+                        <div class="reference-content">
+                            <div class="ref-header">
+                                <span class="ref-tag paper">Journal</span>
+                                <a href="https://www.mdpi.com/2227-7102/15/5/554" target="_blank" class="text-slate-400 hover:text-blue-600">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                            <a href="https://www.mdpi.com/2227-7102/15/5/554" target="_blank" class="ref-title">
+                                Generative Artificial Intelligence Amplifies the Role of Critical Thinking Skills
+                            </a>
+                            <div class="ref-meta">MDPI Education Sciences (2025)</div>
+                        </div>
+                        <div class="ref-used-in">
+                            <strong><i class="fa-solid fa-quote-left mr-1"></i> 주요 인용</strong>
+                            학습과학(메타인지), 평가 전략(비판적 검증)
+                        </div>
                     </div>
-
-                    <!-- Reference 5 -->
-                    <div class="reference-item">
-                        <span class="ref-tag article">Article</span>
-                        <a href="https://www.makebot.ai/blog/cojunggo-gyoyugyi-mirae-saengseonghyeong-aiga-yeoleoganeun-cangyijeog-hagseub-hyeogmyeong" target="_blank">초중고 교육의 미래: 생성형 AI가 열어가는 창의적 학습 혁명</a>
-                        <div class="ref-meta">Makebot.ai Blog (2025)</div>
-                        <span class="ref-used-in"><i class="fa-solid fa-link mr-1"></i>인용: 서론(AI의 기회) / 배경 지식</span>
+                    <div class="reference-card">
+                        <div class="reference-content">
+                            <div class="ref-header">
+                                <span class="ref-tag report">Report</span>
+                                <a href="https://journal.kace.re.kr/xml/42093/42093.pdf" target="_blank" class="text-slate-400 hover:text-blue-600">
+                                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                                </a>
+                            </div>
+                            <a href="https://journal.kace.re.kr/xml/42093/42093.pdf" target="_blank" class="ref-title">
+                                초중등교육에서 생성형 AI의 교육적 활용에 대한 주제 범위 문헌고찰
+                            </a>
+                            <div class="ref-meta">한국교육정보미디어학회 / KACE (2024)</div>
+                        </div>
+                        <div class="ref-used-in">
+                            <strong><i class="fa-solid fa-quote-left mr-1"></i> 주요 인용</strong>
+                            국내 교육 현황, 교수설계 시사점
+                        </div>
                     </div>
-
-                    <!-- Reference 6 -->
-                    <div class="reference-item">
-                        <span class="ref-tag report">Report</span>
-                        <a href="https://journal.kace.re.kr/xml/42093/42093.pdf" target="_blank">초중등교육에서 생성형 AI의 교육적 활용에 대한 주제 범위 문헌고찰</a>
-                        <div class="ref-meta">한국교육정보미디어학회 / KACE (2024)</div>
-                        <span class="ref-used-in"><i class="fa-solid fa-link mr-1"></i>인용: 새로운 역할(교수자) / 결론 / 평가 전략(Key Takeaway)</span>
-                    </div>
-                    
                 </div>
             </div>
 
         </main>
     </div>
 
-    <!-- Custom Alert Modal -->
     <div id="customAlert" class="fixed inset-0 bg-gray-600 bg-opacity-50 flex items-center justify-center z-50" style="display:none;">
         <div class="bg-white p-6 rounded-lg shadow-xl w-11/12 md:w-1/3">
             <h4 class="text-lg font-bold text-slate-800">알림</h4>
@@ -598,222 +693,108 @@
         let currentSubPage = 'page3-1';
 
         function showPage(pageId) {
-            // Hide all main pages
-            document.querySelectorAll('.page-content').forEach(page => {
-                page.style.display = 'none';
-            });
-            // Show selected main page
+            document.querySelectorAll('.page-content').forEach(page => page.style.display = 'none');
             document.getElementById(pageId).style.display = 'block';
-
-            // Update main nav button styles
-            document.querySelectorAll('.nav-button').forEach(button => {
-                button.classList.remove('active');
-            });
+            document.querySelectorAll('.nav-button').forEach(button => button.classList.remove('active'));
             document.getElementById('nav-' + pageId).classList.add('active');
-            
             currentPage = pageId;
-            
-            // If navigating to page 3, ensure its default sub-tab is shown
-            if (pageId === 'page3') {
-                showSubPage('page3-1');
-            }
+            if (pageId === 'page3') showSubPage('page3-1');
         }
 
         function showSubPage(subPageId) {
-            // Hide all sub-pages within page 3
-            document.querySelectorAll('#page3 .sub-page-content').forEach(page => {
-                page.style.display = 'none';
-            });
-            // Show selected sub-page
+            document.querySelectorAll('#page3 .sub-page-content').forEach(page => page.style.display = 'none');
             document.getElementById(subPageId).style.display = 'block';
-
-            // Update sub-nav button styles
-            document.querySelectorAll('#page3 .sub-nav-button').forEach(button => {
-                button.classList.remove('active');
-            });
+            document.querySelectorAll('#page3 .sub-nav-button').forEach(button => button.classList.remove('active'));
             document.getElementById('nav-' + subPageId).classList.add('active');
-            
             currentSubPage = subPageId;
-
-            // Hide loading indicator when switching sub-tabs
             const loadingIndicator = document.getElementById('loadingIndicator');
-            if (loadingIndicator) {
-                loadingIndicator.style.display = 'none';
-            }
+            if (loadingIndicator) loadingIndicator.style.display = 'none';
         }
         
         // --- Gemini API Functions ---
-
-        // (변경 1) API 키를 브라우저에서 완전히 제거합니다.
-        // const apiKey = ""; // 이 줄이 삭제되었습니다.
-
-        /**
-         * Shows or hides the loading spinner and disables buttons.
-         * @param {boolean} isLoading - Whether to show the loader.
-         */
         function setLoading(isLoading) {
             const loadingIndicator = document.getElementById('loadingIndicator');
             const askButton = document.getElementById('askButton');
             const debateButton = document.getElementById('debateButton');
-
             if (isLoading) {
                 loadingIndicator.style.display = 'block';
                 askButton.disabled = true;
-                if(debateButton) debateButton.disabled = true; // debateButton이 존재할 때만 비활성화
+                if(debateButton) debateButton.disabled = true;
             } else {
                 loadingIndicator.style.display = 'none';
                 askButton.disabled = false;
-                if(debateButton) debateButton.disabled = false; // debateButton이 존재할 때만 활성화
+                if(debateButton) debateButton.disabled = false;
             }
         }
 
-        /**
-         * Calls the Gemini API with exponential backoff.
-         * @param {string} prompt - The user prompt.
-         * @param {string | null} systemPrompt - The system instruction.
-         * @param {number} retries - Number of retries left.
-         * @param {number} delay - Delay in ms.
-         * @returns {Promise<string>} - The AI's text response.
-         */
         async function callGeminiAPI(prompt, systemPrompt = null, retries = 3, delay = 1000) {
             setLoading(true);
-            
-            // (변경 2-1) Google API 대신 우리 서버 프록시 주소를 호출합니다.
-            const apiUrl = "/api/gemini"; 
-
-            // (변경 2-2) payload를 fetch의 body로 전달합니다.
-            const payload = {
-                prompt: prompt,
-                systemPrompt: systemPrompt
-            };
-
+            const apiUrl = "/api/gemini"; // Server Proxy URL
+            const payload = { prompt: prompt, systemPrompt: systemPrompt };
             try {
                 const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify(payload) // 서버 프록시로 프롬프트를 전송
+                    body: JSON.stringify(payload)
                 });
-
                 if (!response.ok) {
-                    // (변경 2-3) 서버에서 받은 오류 메시지를 표시
                     const errorBody = await response.text();
                     throw new Error(`HTTP error! status: ${response.status}, body: ${errorBody}`);
                 }
-
                 const result = await response.json();
-
-                if (result.candidates && result.candidates.length > 0 &&
-                    result.candidates[0].content && result.candidates[0].content.parts &&
-                    result.candidates[0].content.parts.length > 0) {
-                    
+                if (result.candidates && result.candidates[0].content.parts.length > 0) {
                     setLoading(false);
                     return result.candidates[0].content.parts[0].text;
                 } else {
-                    // (변경 2-4) Google API가 아닌 프록시에서 다른 오류를 보낼 경우
-                    if (result.error) {
-                        throw new Error(result.error.message);
-                    }
-                    // (변경 2-5) Google API가 원하는 응답을 주지 않았을 때
-                    if (result.promptFeedback) {
-                         throw new Error(`API request blocked due to safety settings: ${result.promptFeedback.blockReason}`);
-                    }
-                    throw new Error("Invalid API response structure from proxy.");
+                    if (result.error) throw new Error(result.error.message);
+                    if (result.promptFeedback) throw new Error(`Safety block: ${result.promptFeedback.blockReason}`);
+                    throw new Error("Invalid API response.");
                 }
-
             } catch (error) {
                 if (retries > 0) {
                     await new Promise(res => setTimeout(res, delay));
                     return callGeminiAPI(prompt, systemPrompt, retries - 1, delay * 2);
                 } else {
                     setLoading(false);
-                    return `Error: AI 응답을 가져오는 데 실패했습니다. (${error.message})`;
+                    return `Error: ${error.message}`;
                 }
             }
         }
 
-        /**
-         * Step 1: Ask AI for a definition.
-         */
         async function runStep1() {
             const concept = document.getElementById('conceptInput').value;
-            if (!concept) {
-                showCustomAlert("핵심 개념을 입력해주세요.");
-                return;
-            }
-
-            // Hide previous results
+            if (!concept) { showCustomAlert("핵심 개념을 입력해주세요."); return; }
             document.getElementById('step2Container').style.display = 'none';
             document.getElementById('step3Container').style.display = 'none';
-
             const systemPrompt = "You are a helpful assistant for a graduate student in Education. Please define the following key concept clearly and concisely. Respond in Korean.";
             const userPrompt = `Please define: "${concept}"`;
-
             const responseText = await callGeminiAPI(userPrompt, systemPrompt);
-            
             document.getElementById('aiResponse1').innerText = responseText;
             document.getElementById('step2Container').style.display = 'block';
         }
 
-        /**
-         * Step 3: Start a debate with the AI.
-         */
         async function runStep3() {
             const concept = document.getElementById('conceptInput').value;
             const definition = document.getElementById('aiResponse1').innerText;
             const critique = document.getElementById('critiqueInput').value;
-
-            if (!critique) {
-                showCustomAlert("AI의 응답에 대한 비판을 입력해주세요.");
-                return;
-            }
-
-            // Hide previous debate result
+            if (!critique) { showCustomAlert("AI의 응답에 대한 비판을 입력해주세요."); return; }
             document.getElementById('step3Container').style.display = 'none';
-
-            const systemPrompt = "You are a Socratic debate partner for a graduate student. Your role is to take a counter-argument position. A student has provided a key concept, you provided a definition, and the student has provided a critique of your definition. Now, you must challenge the student's critique and engage them in a debate to deepen their thinking. Be critical, constructive, and ask probing questions. Do not simply agree. Your goal is to make the student think more deeply. Respond in Korean.";
-            
-            const userPrompt = `Here is the context:\n1. Key Concept: ${concept}\n2. My (AI's) Original Definition: ${definition}\n3. Student's Critique: ${critique}\n\nYour Task: Now, start the debate by challenging the student's critique.`;
-
+            const systemPrompt = "You are a Socratic debate partner. Challenge the student's critique and engage in debate. Be critical and probing. Respond in Korean.";
+            const userPrompt = `Context:\n1. Concept: ${concept}\n2. Definition: ${definition}\n3. Critique: ${critique}\n\nTask: Challenge the critique.`;
             const responseText = await callGeminiAPI(userPrompt, systemPrompt);
-
             document.getElementById('aiResponse2').innerText = responseText;
             document.getElementById('step3Container').style.display = 'block';
         }
 
-        /**
-         * Shows the custom alert modal.
-         * @param {string} message - The message to display.
-         */
         function showCustomAlert(message) {
             document.getElementById('customAlertMessage').innerText = message;
             document.getElementById('customAlert').style.display = 'flex';
         }
-
-        /**
-         * Closes the custom alert modal.
-         */
         function closeCustomAlert() {
             document.getElementById('customAlert').style.display = 'none';
         }
 
-
-        // Initialize the first page on load
-        document.addEventListener('DOMContentLoaded', () => {
-            showPage(currentPage);
-        });
+        document.addEventListener('DOMContentLoaded', () => { showPage(currentPage); });
     </script>
-
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
-
-
