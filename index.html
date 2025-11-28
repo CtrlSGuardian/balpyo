@@ -321,7 +321,7 @@
                 </div>
             </div>
 
-            <!-- Page 3: New Strategy (Slides 4, 5, 6) -->
+            <!-- Page 3: New Strategy (Slides 4, 5, 6 +New Assessment)) -->
             <div id="page3" class="page-content" style="display:none;">
                 <h2 class="text-2xl font-bold mb-6">새로운 교수설계: '사고 파트너'로의 전환</h2>
                 <p class="mb-8 text-slate-700 leading-relaxed">
@@ -397,7 +397,7 @@
                                 <!-- Step 1: Ask -->
                                 <div>
                                     <label for="conceptInput">1. (Ask) 핵심 개념 입력:</label>
-                                    <input type="text" id="conceptInput" class="gemini-input" placeholder="예: 메타인지, 구성주의...">
+                                    <input type="text" id="conceptInput" class="gemini-input" placeholder="예: 메타인지, 구성주의, 비계설정...">
                                     <button id="askButton" class="gemini-button" onclick="runStep1()">✨ 1단계: AI에게 정의 요청하기</button>
                                 </div>
 
@@ -426,16 +426,19 @@
                                         <div id="aiResponse2" class="ai-response-box"></div>
                                     </div>
                                 </div>
-
-                            </div>
+                                
+                                <!-- AI Ethics Disclaimer -->
                                 <div class="mt-4 p-3 bg-yellow-50 border border-yellow-200 rounded text-xs text-yellow-800">
                                     <i class="fa-solid fa-triangle-exclamation mr-1"></i>
                                     <strong>AI 윤리 및 한계:</strong> 본 시뮬레이션은 Google Gemini Pro 모델을 기반으로 하며, 할루시네이션(Hallucination)이 발생할 수 있습니다. AI의 답변을 맹신하지 말고 비판적으로 검증하십시오.
-                                </div>                            
+                            </div>
+                          
                         </div>
                     </div>
                 </div>
             </div>
+
+                <!-- Sub-Page 3-3: Assessment Strategy (NEW) -->                
                <div id="page3-3" class="sub-page-content" style="display:none;">
                     <div class="mb-8">
                         <h3 class="text-xl font-bold text-blue-800 mb-4">결과(Output)가 아닌 과정(Process)을 평가하다</h3>
@@ -508,8 +511,10 @@
                     <div class="p-6 bg-white border border-slate-200 rounded-lg shadow-sm">
                         <h3 class="text-lg font-bold text-slate-800 mb-2">3. 우리의 역할: '생각의 마찰'을 설계하다</h3>
                         <p class="text-slate-700 leading-relaxed">
-                    결론적으로, AI의 교육적 가치는 기술 자체가 아닌 우리의 '설계'에 달려있습니다. 학습과학은 AI를 단순한 정답 제공자에서 강력한 사고 촉진 도구로 변화시킬 수 있는 핵심적인 지침을 제공합니다.
-                </p>
+                            결국 생성형 AI 시대의 교수설계란, 학습자가 편안하게 답을 얻도록 돕는 것이 아니라, 의도적으로 <strong>'바람직한 어려움(Desirable Difficulty)'</strong>을 만들어내는 과정이어야 합니다. AI와 끊임없이 문답(Ask)하고, 비판(Critique)하고, 토론(Debate)하게 함으로써, 기술이 인간의 사고를 대신하는 것이 아니라 <strong>인간의 사고를 확장하는 도구(Scaffolding)</strong>가 되도록 설계해야 합니다.
+                        </p>
+                    </div>
+                </div>
                 
                 <div class="full-bg-image my-8" style="background-image: url('https://placehold.co/1280x720/0A2342/FFFFFF?text=%EA%B2%B0%EB%A1%A0');">
                     <div class="content-overlay">
@@ -802,4 +807,5 @@
 </body>
 
 </html>
+
 
