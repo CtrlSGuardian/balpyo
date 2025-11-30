@@ -765,10 +765,10 @@
             
             // ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
             // 여기에 구글 AI Studio에서 받은 API 키를 입력하세요.
-            const apiKey = "AIzaSy..."; 
+            const apiKey = "MY_Gemini_API"; 
             // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
 
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
             // 구글 API 형식에 맞춰 페이로드 구성 (systemPrompt + userPrompt 합치기)
             const fullPrompt = systemPrompt ? `${systemPrompt}\n\n${prompt}` : prompt;
@@ -869,4 +869,5 @@
     </script>
 </body>
 </html>
+
 
