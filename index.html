@@ -214,7 +214,7 @@
     <div class="app-container">
         <header class="p-6 md:p-8 border-b border-slate-200">
             <h1 class="text-3xl md:text-4xl font-bold text-center">생성형 AI와 '사고'하는 법</h1>
-            <p class="text-center text-lg md:text-xl text-slate-600 mt-2">"Answer Engine을 넘어 Thinking Partner로"</p>
+            <p class="text-center text-lg md:text-xl text-slate-600 mt-2">"학습과학으로 설계하는 사고의 확장"</p>
             <div class="text-center text-sm text-slate-500 mt-4">
                 <p>교육데이터사이언스 전공 | 2025123757 | 김다정</p>
             </div>
@@ -225,15 +225,15 @@
                 <i class="fa-solid fa-right-left mr-2"></i>서론: AI의 딜레마
             </button>
             
-            <button id="nav-page2" class="nav-button" onclick="showPage('page2'); playAudio('02_theory.mp3');">
+            <button id="nav-page2" class="nav-button" onclick="showPage('page2'); playAudio('02_theory.wav');">
                 <i class="fa-solid fa-book-open-reader mr-2"></i>학습과학의 관점
             </button>
             
-            <button id="nav-page3" class="nav-button" onclick="showPage('page3'); playAudio('03_new_design.mp3');">
+            <button id="nav-page3" class="nav-button" onclick="showPage('page3'); playAudio('03_new_design.wav');">
                 <i class="fa-solid fa-compass-drafting mr-2"></i>새로운 교수설계
             </button>
             
-            <button id="nav-page4" class="nav-button" onclick="showPage('page4'); playAudio('08_conclusion.mp3');">
+            <button id="nav-page4" class="nav-button" onclick="showPage('page4'); playAudio('08_conclusion.wav');">
                 <i class="fa-solid fa-flag-checkered mr-2"></i>결론: 인지적 몰입
             </button>
             
@@ -248,8 +248,8 @@
                 <h2 class="text-2xl font-bold mb-6">서론: 생성형 AI와 인지적 외주화(Cognitive Offloading)의 딜레마</h2>
                 
                 <div class="mb-6">
-                    <button onclick="playAudio('01_intro.mp3')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transition transform hover:scale-105 animate-pulse">
-                        <i class="fa-solid fa-play mr-2"></i> 발표 시작 (Audio On)
+                    <button onclick="playAudio('01_intro.wav')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transition transform hover:scale-105 animate-pulse">
+                        <i class="fa-solid fa-play mr-2"></i>
                     </button>
                 </div>
 
@@ -377,13 +377,13 @@
                 </div>
                 
                 <div class="flex justify-center gap-4 mb-8 border-b border-slate-200 pb-4">
-                    <button id="nav-page3-1" class="sub-nav-button active" onclick="showSubPage('page3-1'); playAudio('03_new_design.mp3');">
+                    <button id="nav-page3-1" class="sub-nav-button active" onclick="showSubPage('page3-1'); playAudio('03_new_design.wav');">
                         <i class="fa-solid fa-users-gear mr-2"></i>새로운 역할
                     </button>
-                    <button id="nav-page3-2" class="sub-nav-button" onclick="showSubPage('page3-2'); playAudio('04_sim_step1.mp3');">
+                    <button id="nav-page3-2" class="sub-nav-button" onclick="showSubPage('page3-2'); playAudio('04_sim_step1.wav');">
                         <i class="fa-solid fa-flask-vial mr-2"></i>교수설계 예시
                     </button>
-                    <button id="nav-page3-3" class="sub-nav-button" onclick="showSubPage('page3-3'); playAudio('07_assessment.mp3');">
+                    <button id="nav-page3-3" class="sub-nav-button" onclick="showSubPage('page3-3'); playAudio('07_assessment.wav');">
                         <i class="fa-solid fa-clipboard-check mr-2"></i>평가 전략
                     </button>                    
                 </div>
@@ -805,7 +805,7 @@
             document.getElementById('step2Container').style.display = 'block';
             
             // 1단계 완료 시 05번 파일 재생 (2단계 가이드)
-            playAudio('05_sim_step2.mp3');
+            playAudio('05_sim_step2.wav');
         }
 
         async function runStep3() {
@@ -822,7 +822,7 @@
             document.getElementById('step3Container').style.display = 'block';
             
             // 3단계 완료 시 06번 파일 재생 (시연 종료 및 다음 안내)
-            playAudio('06_sim_step3.mp3');
+            playAudio('06_sim_step3.wav');
         }
 
         function showCustomAlert(message) {
