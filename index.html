@@ -151,7 +151,7 @@
         .ref-tag.paper { background-color: #f0f9ff; color: #0369a1; border: 1px solid #e0f2fe; }
         .ref-tag.report { background-color: #f1f5f9; color: #475569; border: 1px solid #e2e8f0; }
         .ref-tag.foundational { background-color: #fafaf9; color: #57534e; border: 1px solid #e7e5e4; }
-        .ref-tag.working { background-color: #fdf4ff; color: #86198f; border: 1px solid #fae8ff; } /* Working Paper용 추가 */
+        .ref-tag.working { background-color: #fdf4ff; color: #86198f; border: 1px solid #fae8ff; }
 
         .ref-title {
             font-size: 1.05rem; 
@@ -214,7 +214,7 @@
     <div class="app-container">
         <header class="p-6 md:p-8 border-b border-slate-200">
             <h1 class="text-3xl md:text-4xl font-bold text-center">생성형 AI와 '사고'하는 법</h1>
-            <p class="text-center text-lg md:text-xl text-slate-600 mt-2">"학습과학으로 설계하는 사고의 확장"</p>
+            <p class="text-center text-lg md:text-xl text-slate-600 mt-2">"Answer Engine을 넘어 Thinking Partner로"</p>
             <div class="text-center text-sm text-slate-500 mt-4">
                 <p>교육데이터사이언스 전공 | 2025123757 | 김다정</p>
             </div>
@@ -249,7 +249,7 @@
                 
                 <div class="mb-6">
                     <button onclick="playAudio('01_intro.wav')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transition transform hover:scale-105 animate-pulse">
-                        <i class="fa-solid fa-play mr-2"></i>
+                        <i class="fa-solid fa-play mr-2"></i> 발표 시작 (Audio On)
                     </button>
                 </div>
 
@@ -704,11 +704,13 @@
         let currentSubPage = 'page3-1';
         let currentAudio = null;
 
+        // 오디오 재생 함수 (GitHub Pages에서도 잘 작동하도록 파일 경로를 상대로 설정)
         function playAudio(fileName) {
             if (currentAudio) {
                 currentAudio.pause();
                 currentAudio.currentTime = 0;
             }
+            // 현재 폴더(./)에서 파일을 찾습니다.
             currentAudio = new Audio(fileName);
             currentAudio.play().catch(error => {
                 console.log("오디오 재생 실패 (사용자 인터랙션 필요):", error);
@@ -723,7 +725,7 @@
         }
 
         function showPage(pageId) {
-            stopAudio();
+            stopAudio(); // 페이지 전환 시 기존 오디오 끔
             document.querySelectorAll('.page-content').forEach(page => page.style.display = 'none');
             document.getElementById(pageId).style.display = 'block';
             document.querySelectorAll('.nav-button').forEach(button => button.classList.remove('active'));
@@ -742,7 +744,7 @@
             if (loadingIndicator) loadingIndicator.style.display = 'none';
         }
         
-        // --- Gemini API Functions ---
+        // --- Gemini API Functions (Client-side Direct Call) ---
         function setLoading(isLoading) {
             const loadingIndicator = document.getElementById('loadingIndicator');
             const askButton = document.getElementById('askButton');
@@ -760,27 +762,51 @@
 
         async function callGeminiAPI(prompt, systemPrompt = null, retries = 3, delay = 1000) {
             setLoading(true);
-            const apiUrl = "/api/gemini"; // Server Proxy URL
-            const payload = { prompt: prompt, systemPrompt: systemPrompt };
+            
+            // ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
+            // 여기에 구글 AI Studio에서 받은 API 키를 입력하세요.
+            const apiKey = "AIzaSy..."; 
+            // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`;
+
+            // 구글 API 형식에 맞춰 페이로드 구성 (systemPrompt + userPrompt 합치기)
+            const fullPrompt = systemPrompt ? `${systemPrompt}\n\n${prompt}` : prompt;
+
+            const payload = {
+                contents: [
+                    {
+                        parts: [
+                            { text: fullPrompt }
+                        ]
+                    }
+                ]
+            };
+
             try {
                 const response = await fetch(apiUrl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(payload)
                 });
+
                 if (!response.ok) {
                     const errorBody = await response.text();
-                    throw new Error(`HTTP error! status: ${response.status}, body: ${errorBody}`);
+                    throw new Error(`HTTP error! status: ${response.status}`);
                 }
+
                 const result = await response.json();
-                if (result.candidates && result.candidates[0].content.parts.length > 0) {
+
+                if (result.candidates && result.candidates.length > 0 &&
+                    result.candidates[0].content && result.candidates[0].content.parts &&
+                    result.candidates[0].content.parts.length > 0) {
+                    
                     setLoading(false);
                     return result.candidates[0].content.parts[0].text;
                 } else {
-                    if (result.error) throw new Error(result.error.message);
-                    if (result.promptFeedback) throw new Error(`Safety block: ${result.promptFeedback.blockReason}`);
-                    throw new Error("Invalid API response.");
+                    throw new Error("API 응답을 받아오지 못했습니다.");
                 }
+
             } catch (error) {
                 if (retries > 0) {
                     await new Promise(res => setTimeout(res, delay));
@@ -797,14 +823,17 @@
             if (!concept) { showCustomAlert("핵심 개념을 입력해주세요."); return; }
             document.getElementById('step2Container').style.display = 'none';
             document.getElementById('step3Container').style.display = 'none';
+            
             const systemPrompt = "You are a helpful assistant for a graduate student in Education. Please define the following key concept clearly and concisely. Respond in Korean.";
             const userPrompt = `Please define: "${concept}"`;
             
+            // API 호출 (직접 호출 방식)
             const responseText = await callGeminiAPI(userPrompt, systemPrompt);
+            
             document.getElementById('aiResponse1').innerText = responseText;
             document.getElementById('step2Container').style.display = 'block';
             
-            // 1단계 완료 시 05번 파일 재생 (2단계 가이드)
+            // 1단계 완료 시 05_sim_step2.wav 파일 재생
             playAudio('05_sim_step2.wav');
         }
 
@@ -814,14 +843,17 @@
             const critique = document.getElementById('critiqueInput').value;
             if (!critique) { showCustomAlert("AI의 응답에 대한 비판을 입력해주세요."); return; }
             document.getElementById('step3Container').style.display = 'none';
+            
             const systemPrompt = "You are a Socratic debate partner. Challenge the student's critique and engage in debate. Be critical and probing. Respond in Korean.";
             const userPrompt = `Context:\n1. Concept: ${concept}\n2. Definition: ${definition}\n3. Critique: ${critique}\n\nTask: Challenge the critique.`;
             
+            // API 호출
             const responseText = await callGeminiAPI(userPrompt, systemPrompt);
+            
             document.getElementById('aiResponse2').innerText = responseText;
             document.getElementById('step3Container').style.display = 'block';
             
-            // 3단계 완료 시 06번 파일 재생 (시연 종료 및 다음 안내)
+            // 3단계 완료 시 06_sim_step3.wav 파일 재생
             playAudio('06_sim_step3.wav');
         }
 
