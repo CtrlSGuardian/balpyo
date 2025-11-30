@@ -127,7 +127,7 @@
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
             border-color: #cbd5e1;
             /* 호버 시 왼쪽 포인트 컬러: 차분한 네이비 */
-            border-left: 4px solid #f0f9ff; 
+            border-left: 4px solid #0A2342; 
         }
 
         .ref-header {
@@ -214,26 +214,30 @@
     <div class="app-container">
         <header class="p-6 md:p-8 border-b border-slate-200">
             <h1 class="text-3xl md:text-4xl font-bold text-center">생성형 AI와 '사고'하는 법</h1>
-            <p class="text-center text-lg md:text-xl text-slate-600 mt-2">학습과학으로 설계하는 사고의 확장</p>
+            <p class="text-center text-lg md:text-xl text-slate-600 mt-2">"Answer Engine을 넘어 Thinking Partner로"</p>
             <div class="text-center text-sm text-slate-500 mt-4">
                 <p>교육데이터사이언스 전공 | 2025123757 | 김다정</p>
             </div>
         </header>
 
         <nav class="p-4 flex flex-wrap justify-center gap-2 md:gap-4 border-b border-slate-200 bg-slate-50">
-            <button id="nav-page1" class="nav-button active" onclick="showPage('page1')">
+            <button id="nav-page1" class="nav-button active" onclick="showPage('page1'); stopAudio();">
                 <i class="fa-solid fa-right-left mr-2"></i>서론: AI의 딜레마
             </button>
-            <button id="nav-page2" class="nav-button" onclick="showPage('page2')">
+            
+            <button id="nav-page2" class="nav-button" onclick="showPage('page2'); playAudio('02_theory.mp3');">
                 <i class="fa-solid fa-book-open-reader mr-2"></i>학습과학의 관점
             </button>
-            <button id="nav-page3" class="nav-button" onclick="showPage('page3')">
+            
+            <button id="nav-page3" class="nav-button" onclick="showPage('page3'); playAudio('03_new_design.mp3');">
                 <i class="fa-solid fa-compass-drafting mr-2"></i>새로운 교수설계
             </button>
-            <button id="nav-page4" class="nav-button" onclick="showPage('page4')">
+            
+            <button id="nav-page4" class="nav-button" onclick="showPage('page4'); playAudio('08_conclusion.mp3');">
                 <i class="fa-solid fa-flag-checkered mr-2"></i>결론: 인지적 몰입
             </button>
-            <button id="nav-page5" class="nav-button" onclick="showPage('page5')">
+            
+            <button id="nav-page5" class="nav-button" onclick="showPage('page5'); stopAudio();">
                 <i class="fa-solid fa-book mr-2"></i>참고문헌
             </button>
         </nav>
@@ -242,6 +246,13 @@
 
             <div id="page1" class="page-content">
                 <h2 class="text-2xl font-bold mb-6">서론: 생성형 AI와 인지적 외주화(Cognitive Offloading)의 딜레마</h2>
+                
+                <div class="mb-6">
+                    <button onclick="playAudio('01_intro.mp3')" class="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-6 rounded-full shadow-lg transition transform hover:scale-105 animate-pulse">
+                        <i class="fa-solid fa-play mr-2"></i> 발표 시작 (Audio On)
+                    </button>
+                </div>
+
                 <p class="mb-8 text-base text-slate-700 leading-relaxed">
                     생성형 AI는 학습에 강력한 기회를 제공하지만, '정답'이 아닌 '사고 과정'이 중요한 학습 영역에서는 근본적인 딜레마를 안겨줍니다. 이는 기술의 수용을 넘어, 교육의 본질이 무엇인지 우리에게 묻고 있습니다.
                 </p>
@@ -357,8 +368,8 @@
                 <div class="bg-white border border-slate-200 rounded-xl p-8 mb-10 text-center shadow-sm">
                     <i class="fa-solid fa-quote-left text-slate-300 text-3xl mb-4"></i>
                     <h3 class="text-xl md:text-2xl font-bold text-slate-800 leading-relaxed">
-                        AI를 <span class="text-slate-400">'정답을 주는 전문가(Answer Engine)'</span>가 아닌,<br class="hidden md:block">
-                        <span class="text-blue-600">'사고를 촉진하는 파트너(Thinking Partner)'</span>로<br class="hidden md:block"> 재설계해야 합니다.
+                        "AI를 <span class="text-slate-400">'정답을 주는 전문가(Answer Engine)'</span>가 아닌,<br class="hidden md:block">
+                        <span class="text-blue-600">'사고를 촉진하는 파트너(Thinking Partner)'</span>로<br class="hidden md:block"> 재설계해야 합니다."
                     </h3>
                     <div class="mt-4 text-sm text-slate-400 font-medium">
                         — Mollick & Mollick (2023)
@@ -366,13 +377,13 @@
                 </div>
                 
                 <div class="flex justify-center gap-4 mb-8 border-b border-slate-200 pb-4">
-                    <button id="nav-page3-1" class="sub-nav-button active" onclick="showSubPage('page3-1')">
+                    <button id="nav-page3-1" class="sub-nav-button active" onclick="showSubPage('page3-1'); playAudio('03_new_design.mp3');">
                         <i class="fa-solid fa-users-gear mr-2"></i>새로운 역할
                     </button>
-                    <button id="nav-page3-2" class="sub-nav-button" onclick="showSubPage('page3-2')">
+                    <button id="nav-page3-2" class="sub-nav-button" onclick="showSubPage('page3-2'); playAudio('04_sim_step1.mp3');">
                         <i class="fa-solid fa-flask-vial mr-2"></i>교수설계 예시
                     </button>
-                    <button id="nav-page3-3" class="sub-nav-button" onclick="showSubPage('page3-3')">
+                    <button id="nav-page3-3" class="sub-nav-button" onclick="showSubPage('page3-3'); playAudio('07_assessment.mp3');">
                         <i class="fa-solid fa-clipboard-check mr-2"></i>평가 전략
                     </button>                    
                 </div>
@@ -691,8 +702,28 @@
     <script>
         let currentPage = 'page1';
         let currentSubPage = 'page3-1';
+        let currentAudio = null;
+
+        function playAudio(fileName) {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+            currentAudio = new Audio(fileName);
+            currentAudio.play().catch(error => {
+                console.log("오디오 재생 실패 (사용자 인터랙션 필요):", error);
+            });
+        }
+
+        function stopAudio() {
+            if (currentAudio) {
+                currentAudio.pause();
+                currentAudio.currentTime = 0;
+            }
+        }
 
         function showPage(pageId) {
+            stopAudio();
             document.querySelectorAll('.page-content').forEach(page => page.style.display = 'none');
             document.getElementById(pageId).style.display = 'block';
             document.querySelectorAll('.nav-button').forEach(button => button.classList.remove('active'));
@@ -768,9 +799,13 @@
             document.getElementById('step3Container').style.display = 'none';
             const systemPrompt = "You are a helpful assistant for a graduate student in Education. Please define the following key concept clearly and concisely. Respond in Korean.";
             const userPrompt = `Please define: "${concept}"`;
+            
             const responseText = await callGeminiAPI(userPrompt, systemPrompt);
             document.getElementById('aiResponse1').innerText = responseText;
             document.getElementById('step2Container').style.display = 'block';
+            
+            // 1단계 완료 시 05번 파일 재생 (2단계 가이드)
+            playAudio('05_sim_step2.mp3');
         }
 
         async function runStep3() {
@@ -781,9 +816,13 @@
             document.getElementById('step3Container').style.display = 'none';
             const systemPrompt = "You are a Socratic debate partner. Challenge the student's critique and engage in debate. Be critical and probing. Respond in Korean.";
             const userPrompt = `Context:\n1. Concept: ${concept}\n2. Definition: ${definition}\n3. Critique: ${critique}\n\nTask: Challenge the critique.`;
+            
             const responseText = await callGeminiAPI(userPrompt, systemPrompt);
             document.getElementById('aiResponse2').innerText = responseText;
             document.getElementById('step3Container').style.display = 'block';
+            
+            // 3단계 완료 시 06번 파일 재생 (시연 종료 및 다음 안내)
+            playAudio('06_sim_step3.mp3');
         }
 
         function showCustomAlert(message) {
@@ -798,4 +837,3 @@
     </script>
 </body>
 </html>
-
