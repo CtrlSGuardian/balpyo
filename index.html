@@ -747,7 +747,7 @@
             if (loadingIndicator) loadingIndicator.style.display = 'none';
         }
         
-        // --- Gemini  Functions (Client-side Direct Call) ---
+        // --- Gemini API Functions (Client-side Direct Call) ---
         function setLoading(isLoading) {
             const loadingIndicator = document.getElementById('loadingIndicator');
             const askButton = document.getElementById('askButton');
@@ -763,13 +763,13 @@
             }
         }
 
-        async function callGemini(prompt, systemPrompt = null, retries = 3, delay = 1000) {
+        async function callGeminiAPI(prompt, systemPrompt = null, retries = 3, delay = 1000) {
             setLoading(true);
             
             // ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
             // 여기에 구글 AI Studio에서 받은 API 키를 입력하세요.
-            const apiKey = "AIzaSyBmVWsBMFe7jeJRShTcIrmTgVqEmY_pB0A"; 
-            // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
+            const apiKey = "AIzaSyD2dnodUkr7yomqBWSn9wurSASd7XftAow"; 
+            // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
 
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
 
@@ -827,7 +827,7 @@
             document.getElementById('step2Container').style.display = 'none';
             document.getElementById('step3Container').style.display = 'none';
             
-            const systemPrompt = "You are an expert tutor in Learning Sciences. Please define the following key concept clearly and concisely. Respond in Korean.";
+            const systemPrompt = "You are a helpful assistant for a graduate student in Education. Please define the following key concept clearly and concisely. Respond in Korean.";
             const userPrompt = `Please define: "${concept}"`;
             
             // API 호출 (직접 호출 방식)
@@ -872,14 +872,6 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
 
 
 
