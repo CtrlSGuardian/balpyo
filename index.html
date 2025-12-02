@@ -747,7 +747,7 @@
             if (loadingIndicator) loadingIndicator.style.display = 'none';
         }
         
-        // --- Gemini API Functions (Client-side Direct Call) ---
+        // --- Gemini  Functions (Client-side Direct Call) ---
         function setLoading(isLoading) {
             const loadingIndicator = document.getElementById('loadingIndicator');
             const askButton = document.getElementById('askButton');
@@ -763,12 +763,12 @@
             }
         }
 
-        async function callGeminiAPI(prompt, systemPrompt = null, retries = 3, delay = 1000) {
+        async function callGemini(prompt, systemPrompt = null, retries = 3, delay = 1000) {
             setLoading(true);
             
             // ▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼▼
             // 여기에 구글 AI Studio에서 받은 API 키를 입력하세요.
-            const apiKey = "AIzaSyD2dnodUkr7yomqBWSn9wurSASd7XftAow"; 
+            const apiKey = "AIzaSyBmVWsBMFe7jeJRShTcIrmTgVqEmY_pB0A"; 
             // ▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲▲
 
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${apiKey}`;
@@ -872,6 +872,7 @@
     </script>
 </body>
 </html>
+
 
 
 
